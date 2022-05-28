@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec="/opt/app/shazware/ned" %F
+Name=NEd
+GenericName=Nifty text EDitor.
+Icon=/opt/app/shazware/ned.png
+Terminal=false
+Categories=Development;IDE;Qt;
+MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;application/vnd.qt.qmakeprofile;application/vnd.qt.xml.resource;text/x-qml;text/x-qt.qml;text/x-qt.qbs;

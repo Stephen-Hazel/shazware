@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec="/opt/app/shazware/renem" %F
+Name=RenEm
+GenericName=Rename em - rename all files in a dir with text editor
+Icon=/opt/app/shazware/ftx.png
+Terminal=false
+Categories=Development;IDE;Qt;
+MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;applicat
+ion/vnd.qt.qmakeprofile;application/vnd.qt.xml.resource;text/x-qml;text/x-qt.qml
+;text/x-qt.qbs;
