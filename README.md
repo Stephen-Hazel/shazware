@@ -17,6 +17,7 @@ dumps a big font to the ole console
 
 * console app
 
+```
     sh@penguin:~/src$ big how are you
     HH        HH   OOOOOOOOOO   WW        WW
     HH        HH  OOOOOOOOOOOO  WW        WW
@@ -73,6 +74,7 @@ dumps a big font to the ole console
       MM        MM  AA        AA  NN      NNNN
      MM        MM  AA        AA  NN       NNN
     MM        MM  AA        AA  NN        NN
+```
 
 --------------------------------------------------------------------------------
 
