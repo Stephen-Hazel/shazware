@@ -50,7 +50,7 @@ void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, bool flip)
   QPen   penf (fc), penb (bc);
   QBrush            brs  (bc);
   QPainter p (Scr.pm);
-   p.setFont (Gui.A ()->font ());
+   p.setFont (Gui.W ()->font ());
    p.setPen (penb);   p.setBrush (brs);
    p.drawRect (bgn*Scr.wLn/80, y*Scr.hCh, (end-bgn+1)*Scr.wLn/80, Scr.hCh);
    p.setPen (penf);
