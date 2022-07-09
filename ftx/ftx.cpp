@@ -206,10 +206,10 @@ void FTx::Quit ()
 {  Gui.WinSave (ui->spl);  }
 
 int main (int argc, char *argv [])
-{ QApplication app (argc, argv);
-  FTx win;
-   App.Init (CC("StephenHazel"), CC("FTx"), CC("FTx"));
-   Gui.Init (& app, & win, 'f');   win.Init ();
-  int rc = Gui.Loop ();            win.Quit ();
+{ QApplication a (argc, argv);
+  FTx w;
+   App.Init (CC("shazware"), CC("ftx"), CC("FTx"));
+   Gui.Init (& a, & w, 'f');   w.Init ();
+  int rc = Gui.Loop ();        w.Quit ();
    return rc;
 }

@@ -94,11 +94,11 @@ void RenEm::Quit ()
 {  Gui.WinSave ();  }
 
 int main (int argc, char *argv [])
-{ QApplication app (argc, argv);
-  RenEm win;
+{ QApplication a (argc, argv);
+  RenEm w;
   int r;
-   App.Init (CC("StephenHazel"), CC("RenEm"), CC("RenEm"));
-   Gui.Init (& app, & win, 'f');   win.Init ();
-  int rc = Gui.Loop ();            win.Quit ();
+   App.Init (CC("shazware"), CC("renem"), CC("RenEm"));
+   Gui.Init (& a, & w, 'f');   w.Init ();
+  int rc = Gui.Loop ();        w.Quit ();
    return rc;
 }

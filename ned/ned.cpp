@@ -285,7 +285,7 @@ void NEd::Quit ()
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   NEd w;
-   App.Init (CC("StephenHazel"), CC("NEd"), CC("NEd"));
+   App.Init (CC("shazware"), CC("ned"), CC("NEd"));
    Gui.Init (& a, & w, 'f');   w.Init ();
   int rc = Gui.Loop ();        w.Quit ();       
    return rc;
