@@ -186,7 +186,7 @@ void FTx::Dir ()
 //------------------------------------------------------------------------------
 void FTx::Init ()
 {  StrCp (_s, Gui.Arg (0));   StrCp (_dir, Gui.Arg (1));
-   if (! *_dir)  StrCp (_dir, CC("/home/sh/_/src/"));
+   if (! *_dir)  StrCp (_dir, CC("/home/sh/_/src/pcheetah/"));
    ui->spl->setSizes (QList<int>() << 100 << 300);
    Gui.WinLoad (ui->spl);
   CtlTabl t;
