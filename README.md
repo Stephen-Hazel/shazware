@@ -11,6 +11,8 @@ font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
 
 --------------------------------------------------------------------------------
 
+a .deb for kubuntu and raspi are in the zRelease dir (ignore the resta the junk)
+
 ## big
 
 dumps a big font to the ole console
