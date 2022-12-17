@@ -9,6 +9,8 @@ add ../../stv/os.cpp, ui.cpp, uiKey.cpp
 Also note that font comes from ~/.config/StephenHazel/NEd.conf 's
 font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
 
+a .deb for kubuntu and raspi are in the zRelease dir (ignore the resta the junk)
+
 --------------------------------------------------------------------------------
 
 ## todo
