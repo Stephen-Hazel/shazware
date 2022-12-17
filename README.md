@@ -11,6 +11,11 @@ font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
 
 --------------------------------------------------------------------------------
 
+## todo
+   NEd needs a find previous :/
+   
+--------------------------------------------------------------------------------
+
 ## big
 
 dumps a big font to the ole console
