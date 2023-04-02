@@ -1,8 +1,0 @@
-cp ../build-big-Desktop-Release/big shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-flatten-Desktop-Release/flatten shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-ftx-Desktop-Release/ftx shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-l-Desktop-Release/l shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-ned-Desktop-Release/ned shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-recent-Desktop-Release/recent shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-renem-Desktop-Release/renem shazware_20220708-1_amd64/opt/app/shazware
-cp ../build-undup-Desktop-Release/undup shazware_20220708-1_amd64/opt/app/shazware
