@@ -105,8 +105,7 @@ DBG ("   `d to `d", j+1, i2+1);
       }
    }
    f.Shut ();
-   if (system (StrFmt (tfn, "`s '`s'",
-      getenv ("VISUAL") ? getenv ("VISUAL") : "/opt/app/ned", fn)) == 0)  {}
+   if (system (StrFmt (tfn, "xdg-open `p", fn)) == 0)  {}
    if (Gui.YNo ("Done re-x'ing lines of files to delete?", fn))
       if ((p = f.DoText (fn, NULL, DoRec)))
          DBG ("error readin your .txt:(", p);

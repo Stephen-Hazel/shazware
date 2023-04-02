@@ -3,7 +3,6 @@
 #ifndef FTX_H
 #define FTX_H
 
-#include <QListWidgetItem>
 #include "../../stv/ui.h"
 #include "ui_ftx.h"
 

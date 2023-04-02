@@ -30,7 +30,7 @@ char *DoRec (char *buf, ubyt2 len, ubyt4 pos, void *ptr)
 
 void RenEm::Go ()
 { File  f;
-  TStr  fn, buf, ed, cmd;
+  TStr  fn, buf, cmd;
   char *p;
   ubyt4 i, b;
    StrCp (Top, UnQS (ui->ledDir->text ()));
@@ -47,9 +47,7 @@ DBG ("`d files", NFNm);
    for (i = 0; i < NFNm; i++)
       {StrCp (buf, & FNm [i][b]);   StrAp (buf, CC("\n"));   f.Put (buf);}
    f.Shut ();
-   StrCp (ed, (getenv ("VISUAL") == nullptr) ? CC("/opt/app/ned")
-                                             : getenv ("VISUAL"));
-   if (system (StrFmt (cmd, "`s '`s'", ed, fn)))  {}
+   if (system (StrFmt (cmd, "xdg-open `p", fn)))  {}
 
    if (Gui.YNo ("rename (IN PLACE !), save, and click Yes when done editing",
                 "RenEm?")) {
@@ -59,7 +57,7 @@ DBG ("`d files", NFNm);
       if ((p = f.DoText (fn, NULL, DoRec)))
          {Fo.Shut ();   DBG (p);   return;}
       Fo.Shut ();
-      if (system (StrFmt (cmd, "`s '`s'", ed, buf)))  {}
+      if (system (StrFmt (cmd, "xdg-open `p", buf)))  {}
 
       if (Gui.YNo ("Gonna -DO- RenEm", "Ok?"))
          for (i = 0; i < NFNm; i++)  if (FN2 [i][0])  Fo.ReNm (FNm [i], FN2[i]);

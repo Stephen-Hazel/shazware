@@ -3,16 +3,14 @@
 #include "ftx.h"
 
 void FTx::DClk (int row, int col)
-{ BStr  s, s2, s3;
-   (void)col;
+{ BStr  s, fn, c;      (void)col;
 //DBG("DClk bgn r=`d", row);
    if (row == -1)  return;
 
    StrCp (s, UnQS (ui->tblList->item (row, 0)->text ()));
    if (! fork ()) {
-      StrCp (s2, (getenv ("VISUAL") == nullptr) ? CC("/opt/app/ned")
-                                                : getenv ("VISUAL"));
-      if (-1 == system (StrFmt (s3, "`s '`s/`s' `s", s2, _dir, s, _s)))  {};
+      StrFmt (fn, "`s/`s", _dir, s);
+      if ((system (StrFmt (c, "xdg-open `p `s", fn, _s))))  ;
       exit (0);
    }
 }
@@ -186,7 +184,7 @@ void FTx::Dir ()
 //------------------------------------------------------------------------------
 void FTx::Init ()
 {  StrCp (_s, Gui.Arg (0));   StrCp (_dir, Gui.Arg (1));
-   if (! *_dir)  StrCp (_dir, CC("/home/sh/_/src/pcheetah/"));
+   if (! *_dir)  StrCp (_dir, CC("/home/sh/src/pcheetah/"));
    ui->spl->setSizes (QList<int>() << 100 << 300);
    Gui.WinLoad (ui->spl);
   CtlTabl t;
@@ -195,7 +193,7 @@ void FTx::Init ()
    connect (ui->btnDir,  & QPushButton::clicked,     this, & FTx::Dir);
    connect (ui->btnFind, & QPushButton::clicked,     this, & FTx::Find);
    connect (ui->ledFind, & QLineEdit::returnPressed, this, & FTx::Find);
-   connect (ui->tblList, & QTableWidget::itemSelectionChanged, 
+   connect (ui->tblList, & QTableWidget::itemSelectionChanged,
                                                             this, & FTx::Clik);
    connect (ui->tblList, & QTableWidget::cellDoubleClicked, this, & FTx::DClk);
    if (*_dir)  ui->ledDir->setText (_dir);
