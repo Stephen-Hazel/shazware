@@ -1,3 +1,5 @@
+*.txt.user
+
 # C++ objects and libs
 *.slo
 *.lo
