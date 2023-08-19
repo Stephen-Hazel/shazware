@@ -29,7 +29,7 @@ DBG("found `d", tb.num);
          if (fn2 [j] == '/')  {fn2 [j] = '_';  dor = true;}
       if (dor)  f.ReNm (tb.str [i], fn2);
    }
-  FDir fd;
+  Path fd;
    j = fd.DLst (d, DLst, BITS (DLst));
    for (i = 0;  i < j;  i++)  fd.Kill (StrFmt (fn2, "`s/`s", d, DLst [i]));
    Gui.Quit ();

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec="/opt/app/shazware/undup" %F
-Name=undup
+Name=UnDup
 GenericName=UnDuplicate - remove files who have exactly the same content
 Icon=/opt/app/shazware/ftx.png
 Terminal=false
