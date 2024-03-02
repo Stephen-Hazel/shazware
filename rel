@@ -1,7 +1,8 @@
 #!/usr/bin/env php
 <?php 
-## rel (release kubuntu/rpi - cp to /opt/app/$app n create a .deb, etccc)
-
+##
+## rel (release kubuntu/rpi - make a .deb for this stuff
+##
    $arc = isset ($argv [1]) ? 'arm64' : 'amd64';      // any arg=rpi else kub
    $app = "shazware";
    $exe = [
@@ -9,7 +10,7 @@
    ];
    $siz = "2" . "000000";    // just gimme decimal megabytes
 
-// from src/_build/exe/exe to web d/l dir
+// from src/_build/exe/exe + src/zRel => my website d/l dir
    $src = "/home/sh/src";
    $dst = "/home/sh/_/web/pc/download";
 

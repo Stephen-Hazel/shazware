@@ -1,6 +1,6 @@
-// big.cpp
+// main.cpp - big
 
-#include "../../stv/os.h"
+#include "stv/os.h"
 
 
 struct {char ch;  char bg [12*12+1];} Font [] = {

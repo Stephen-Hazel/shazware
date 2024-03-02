@@ -18,8 +18,8 @@ set(PROJECT_SOURCES
         undup.cpp
         undup.h
         undup.ui
-        ../../stv/os.cpp
-        ../../stv/ui.cpp
+        stv/os.cpp
+        stv/ui.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -58,3 +58,8 @@ set_target_properties(undup PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(undup)
 endif()
+
+install(TARGETS undup
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

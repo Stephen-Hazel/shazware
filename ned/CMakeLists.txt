@@ -8,11 +8,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
    ned.h
@@ -25,9 +25,9 @@ set(PROJECT_SOURCES
    CmdBlk.cpp
    CmdEtc.cpp
    CmdMap.cpp
-   ../../stv/os.cpp
-   ../../stv/ui.cpp
-   ../../stv/uiKey.cpp
+   stv/os.cpp
+   stv/ui.cpp
+   stv/uiKey.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -47,7 +47,7 @@ else()
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(ned rc/rc.qrc
+        add_executable(ned
             ${PROJECT_SOURCES}
         )
     endif()
@@ -63,6 +63,15 @@ set_target_properties(ned PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+install(TARGETS ned
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(ned)
 endif()
+
+install(TARGETS ned
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

@@ -263,8 +263,8 @@ void NEd::Init ()                      // font MUST BE MONOSPACE FIXED WIDTH !!
    setMinimumSize  (Scr.wLn/4, Scr.hCh*4);
    setMaximumWidth (Scr.wLn);
    nr = Gui.W ()->size ().height () / Scr.hCh - 1;
-//DBG("wLn=`d wCh=`d+`d/80 hCh=`d rows=`d",
-//Scr.wLn, Scr.wLn/80, Scr.wLn%80, Scr.hCh, nr);
+DBG("wLn=`d wCh=`d+`d/80 hCh=`d rows=`d",
+Scr.wLn, Scr.wLn/80, Scr.wLn%80, Scr.hCh, nr);
    EndScr = nr-1;   Scr.pm = new QPixmap (Scr.wLn, (nr+1)*Scr.hCh);
    StrCp (FName, Gui.Arg (0));   StrCp (s,  Gui.Arg (1));   Load ();
    if (*s) {
@@ -283,10 +283,11 @@ void NEd::Quit ()
 {  Gui.WinSave ();  }
 
 int main (int argc, char *argv [])
-{ QApplication a (argc, argv);
+{ 
+DBG("in ned");
+  QApplication a (argc, argv);
   NEd w;
-   App.Init (CC("shazware"), CC("ned"), CC("NEd"));
-   Gui.Init (& a, & w, 'f');   w.Init ();
-  int rc = Gui.Loop ();        w.Quit ();       
+   App.Init ("NEd");   Gui.Init (& a, & w, 'f');   w.Init ();
+  int rc = Gui.Loop ();                            w.Quit ();       
    return rc;
 }

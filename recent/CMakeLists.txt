@@ -16,6 +16,11 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 add_executable(recent
   main.cpp
-  ../../stv/os.cpp
+  stv/os.cpp
 )
 target_link_libraries(recent Qt${QT_VERSION_MAJOR}::Core)
+
+install(TARGETS recent
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

@@ -138,8 +138,7 @@ void UnDup::Quit ()
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   UnDup w;
-   App.Init (CC("shazware"), CC("undup"), CC("UnDup"));
-   Gui.Init (& a, & w, 'f');   w.Init ();
-  int rc = Gui.Loop ();        w.Quit ();
+   App.Init ("UnDup");   Gui.Init (& a, & w, 'f');   w.Init ();
+  int rc = Gui.Loop ();                              w.Quit ();
    return rc;
 }

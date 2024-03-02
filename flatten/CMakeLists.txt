@@ -18,8 +18,8 @@ set(PROJECT_SOURCES
         flatten.cpp
         flatten.h
         flatten.ui
-        ../../stv/os.cpp
-        ../../stv/ui.cpp
+        stv/os.cpp
+        stv/ui.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -58,3 +58,8 @@ set_target_properties(flatten PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(flatten)
 endif()
+
+install(TARGETS flatten
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

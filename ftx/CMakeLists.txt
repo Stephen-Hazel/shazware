@@ -18,8 +18,8 @@ set(PROJECT_SOURCES
         ftx.cpp
         ftx.h
         ftx.ui
-        ../../stv/os.cpp
-        ../../stv/ui.cpp
+        stv/os.cpp
+        stv/ui.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -58,3 +58,8 @@ set_target_properties(ftx PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(ftx)
 endif()
+
+install(TARGETS ftx
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

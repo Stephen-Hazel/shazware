@@ -61,8 +61,7 @@ void Flatten::Quit ()  {Gui.WinSave ();}
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   Flatten w;
-   App.Init (CC("shazware"), CC("flatten"), CC("Flatten"));
-   Gui.Init (& a, & w);   w.Init ();
-  int rc = Gui.Loop ();   w.Quit ();
+   App.Init ("Flatten");   Gui.Init (& a, & w);   w.Init ();
+  int rc = Gui.Loop ();                           w.Quit ();
    return rc;
 }
