@@ -287,7 +287,7 @@ int main (int argc, char *argv [])
 DBG("in ned");
   QApplication a (argc, argv);
   NEd w;
-   App.Init ("NEd");   Gui.Init (& a, & w, 'f');   w.Init ();
-  int rc = Gui.Loop ();                            w.Quit ();       
+   App.Init ();   Gui.Init (& a, & w, "NEd", 'f');   w.Init ();
+  int rc = Gui.Loop ();                              w.Quit ();       
    return rc;
 }

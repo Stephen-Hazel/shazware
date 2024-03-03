@@ -208,7 +208,7 @@ int main (int argc, char *argv [])
 DBG("in ftx");
   QApplication a (argc, argv);
   FTx w;
-   App.Init ("FTx");   Gui.Init (& a, & w, 'f');   w.Init ();
-  int rc = Gui.Loop ();                            w.Quit ();
+   App.Init ();   Gui.Init (& a, & w, "FTx", 'f');   w.Init ();
+  int rc = Gui.Loop ();                              w.Quit ();
    return rc;
 }
