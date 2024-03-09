@@ -121,17 +121,11 @@ char Buf [8*1024*1024];                // buffer a file to search for str _s
 
 bool DoDir (void *ptr, char dfx, char *fn)
 // find any files and put em in _tb
-{ TStr end;
-//DBG("DoDir dfx=`c fn='`s'", dfx, fn);
-   if (dfx == 'd') {
-      FnName (end, fn);
-      if ((! StrCm (end, CC(".git"))) ||
-          (! MemCm (end, CC("build-"), 6)))  return true;   // SKIP !
-   }
+{ File  f;
+//DBG("DoDir  dfx=`c fn='`s'", dfx, fn);
    if (dfx != 'f')  return false;
-  File  f;
   ulong ln = f.Load (fn, Buf, sizeof (Buf));
-  FTx *me = (FTx *)ptr;
+  FTx  *me = (FTx *)ptr;
    if (MemSt (Buf, me->_s, ln))  me->_tb->Add (fn);
    return false;
 }
@@ -177,13 +171,15 @@ void FTx::Dir ()
 // list off files in this dir w matching str;  show em;  search 1st
 { TStr s;
    StrCp (s, UnQS (ui->ledDir->text ()));
-   if (Gui.AskDir (s, "Pick a top directory"))  ui->ledDir->setText (s);
+   if (Gui.AskDir (s, "Pick a top directory"))
+      {ui->ledDir->setText (s);   StrCp (_dir, s);}
 }
 
 
 //------------------------------------------------------------------------------
 void FTx::Init ()
 {  StrCp (_s, Gui.Arg (0));   StrCp (_dir, Gui.Arg (1));
+   if (! *_dir)  App.CfgGet (CC("ftx_dir"), _dir);
    if (! *_dir)  StrCp (_dir, CC("/home/sh/src/pcheetah/"));
    ui->spl->setSizes (QList<int>() << 100 << 300);
    Gui.WinLoad (ui->spl);
@@ -201,12 +197,10 @@ void FTx::Init ()
 }
 
 void FTx::Quit ()
-{  Gui.WinSave (ui->spl);  }
+{  App.CfgPut (CC("ftx_dir"), _dir);   Gui.WinSave (ui->spl);  }
 
 int main (int argc, char *argv [])
-{ 
-DBG("in ftx");
-  QApplication a (argc, argv);
+{ QApplication a (argc, argv);
   FTx w;
    App.Init ();   Gui.Init (& a, & w, "FTx", 'f');   w.Init ();
   int rc = Gui.Loop ();                              w.Quit ();

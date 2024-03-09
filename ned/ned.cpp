@@ -258,13 +258,15 @@ void NEd::Init ()                      // font MUST BE MONOSPACE FIXED WIDTH !!
   QFontMetrics fm (Gui.A ()->font ());      // 80 cols - ONLY EVER !!!
    MemSet (s, 'A', 80);   s [80] ='\0';
    Scr.wLn = SC(ubyt2,fm.horizontalAdvance (s));      // cuz monospace can have
-   Scr.hCh = SC(ubyt2,fm.height ())-1;                // fractional width sigh
+   Scr.hCh = SC(ubyt2,fm.height ()+1);                // fractional width sigh
    Scr.hBL = SC(ubyt2,fm.ascent ());
    setMinimumSize  (Scr.wLn/4, Scr.hCh*4);
    setMaximumWidth (Scr.wLn);
    nr = Gui.W ()->size ().height () / Scr.hCh - 1;
-DBG("wLn=`d wCh=`d+`d/80 hCh=`d rows=`d",
-Scr.wLn, Scr.wLn/80, Scr.wLn%80, Scr.hCh, nr);
+//DBG("wLn=`d wCh=`d+`d/80 hCh=`d hBL=`d rows=`d\n"
+//    "ascent=`d descent=`d height=`d leading=`d linesp=`d",
+//Scr.wLn, Scr.wLn/80, Scr.wLn%80, Scr.hCh, Scr.hBL, nr,
+//fm.ascent(), fm.descent(), fm.height(), fm.leading(), fm.lineSpacing());
    EndScr = nr-1;   Scr.pm = new QPixmap (Scr.wLn, (nr+1)*Scr.hCh);
    StrCp (FName, Gui.Arg (0));   StrCp (s,  Gui.Arg (1));   Load ();
    if (*s) {
@@ -283,11 +285,9 @@ void NEd::Quit ()
 {  Gui.WinSave ();  }
 
 int main (int argc, char *argv [])
-{ 
-DBG("in ned");
-  QApplication a (argc, argv);
+{ QApplication a (argc, argv);
   NEd w;
    App.Init ();   Gui.Init (& a, & w, "NEd", 'f');   w.Init ();
-  int rc = Gui.Loop ();                              w.Quit ();       
+  int rc = Gui.Loop ();                              w.Quit ();
    return rc;
 }

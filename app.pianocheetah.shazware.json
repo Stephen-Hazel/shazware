@@ -1,0 +1,28 @@
+{
+	"app-id":  "app.pianocheetah.shazware",
+	"command": "ftx",
+	"sdk":     "org.kde.Sdk",
+	"runtime": "org.kde.Platform",
+	"runtime-version": "6.6",
+	"modules": [
+		{
+			"name": "bin_to_app",
+			"buildsystem": "simple",
+			"build-commands": [ 
+				"cp -pr share /app",
+				"cp -pr bin   /app"
+			],
+			"sources": [
+				{
+					"type": "dir", 
+					"path": "_build/files"
+				}
+			]
+		}
+	],
+	"finish-args": [
+		"--filesystem=host",
+		"--socket=wayland",
+		"--socket=fallback-x11"
+	]
+}
