@@ -4,15 +4,12 @@
 
 void FTx::DClk (int row, int col)
 { BStr  s, fn, c;      (void)col;
-//DBG("DClk bgn r=`d", row);
+DBG("DClk bgn r=`d", row);
    if (row == -1)  return;
 
    StrCp (s, UnQS (ui->tblList->item (row, 0)->text ()));
-   if (! fork ()) {
-      StrFmt (fn, "`s/`s", _dir, s);
-      if ((system (StrFmt (c, "xdg-open `p `s", fn, _s))))  ;
-      exit (0);
-   }
+   StrFmt (fn, "`s/`s", _dir, s);
+   App.Open (fn);
 }
 
 
