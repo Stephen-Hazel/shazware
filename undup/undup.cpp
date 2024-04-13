@@ -105,8 +105,8 @@ DBG ("   `d to `d", j+1, i2+1);
       }
    }
    f.Shut ();
-   if (system (StrFmt (tfn, "xdg-open `p", fn)) == 0)  {}
-   if (Gui.YNo ("Done re-x'ing lines of files to delete?", fn))
+   App.Open (fn);
+   if (Gui.YNo ("Done re-x'ing lines of files to delete?"))
       if ((p = f.DoText (fn, NULL, DoRec)))
          DBG ("error readin your .txt:(", p);
 

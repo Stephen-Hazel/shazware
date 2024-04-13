@@ -47,19 +47,18 @@ DBG ("`d files", NFNm);
    for (i = 0; i < NFNm; i++)
       {StrCp (buf, & FNm [i][b]);   StrAp (buf, CC("\n"));   f.Put (buf);}
    f.Shut ();
-   if (system (StrFmt (cmd, "xdg-open `p", fn)))  {}
+   App.Open (fn);
 
-   if (Gui.YNo ("rename (IN PLACE !), save, and click Yes when done editing",
-                "RenEm?")) {
+   if (Gui.YNo ("rename (IN PLACE !), save, and click Yes when done editing")) {
       StrFmt (buf, "`s_RenEm.txt", Top);
       if (! Fo.Open (buf, "w"))  {DBG ("can't write file=`s", buf);   return;}
 
       if ((p = f.DoText (fn, NULL, DoRec)))
          {Fo.Shut ();   DBG (p);   return;}
       Fo.Shut ();
-      if (system (StrFmt (cmd, "xdg-open `p", buf)))  {}
+      App.Open (buf);
 
-      if (Gui.YNo ("Gonna -DO- RenEm", "Ok?"))
+      if (Gui.YNo ("Ready to -DO- RenEm?"))
          for (i = 0; i < NFNm; i++)  if (FN2 [i][0])  Fo.ReNm (FNm [i], FN2[i]);
       f.Kill (buf);
    }

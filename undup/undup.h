@@ -1,7 +1,7 @@
 #ifndef UNDUP_H
 #define UNDUP_H
 
-#include "../../stv/ui.h"
+#include "stv/ui.h"
 #include "ui_undup.h"
 
 QT_BEGIN_NAMESPACE
@@ -10,7 +10,7 @@ QT_END_NAMESPACE
 
 
 class UnDup: public QMainWindow {
-   Q_OBJECT   
+   Q_OBJECT
 private:
    Ui::UnDup *ui;
 

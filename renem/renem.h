@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QMainWindow>
 #include "ui_renem.h"
-#include "../../stv/ui.h"
+#include "stv/ui.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class RenEm; }

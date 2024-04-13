@@ -1,7 +1,7 @@
 #ifndef FLATTEN_H
 #define FLATTEN_H
 
-#include "../../stv/ui.h"
+#include "stv/ui.h"
 #include "ui_flatten.h"
 
 QT_BEGIN_NAMESPACE
