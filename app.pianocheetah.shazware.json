@@ -4,6 +4,12 @@
 	"sdk":     "org.kde.Sdk",
 	"runtime": "org.kde.Platform",
 	"runtime-version": "6.6",
+	"finish-args": [
+		"--filesystem=host",
+		"--socket=wayland",
+		"--socket=fallback-x11",
+		"--device=dri"
+	],
 	"modules": [
 		{
 			"name": "bin_to_app",
@@ -19,10 +25,5 @@
 				}
 			]
 		}
-	],
-	"finish-args": [
-		"--filesystem=host",
-		"--socket=wayland",
-		"--socket=fallback-x11"
 	]
 }
