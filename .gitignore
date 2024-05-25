@@ -1,4 +1,6 @@
 *.txt.user
+dbg.txt
+
 
 # C++ objects and libs
 *.slo
