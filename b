@@ -10,10 +10,11 @@
    $f = "flatpak";      $fb = "flatpak-builder";
 
 // source => _build
-   system ("rm -fr _build .$fb");
+#  system ("rm -fr _build .$fb");
+   system ("rm -fr _build");
    system ("mkdir  _build");
    system ("$fb    _build _manif", $rc);         // _manif is build manifest
-   system ("rm -fr .$fb");
+#  system ("rm -fr .$fb");
    if (($rc != 0) || ($arg == 'o'))  exit;
                                        // build error :( or build only
 // uninstall old app
@@ -24,7 +25,8 @@
    system ("rm -fr _xb _repo");        // unused build dir _xb for fb
    system ("mkdir  _xb _repo");
    system ("$fb --repo=_repo _xb $app.json");    // flathub release manifest
-   system ("rm -fr    _build _xb .$fb");
+#  system ("rm -fr    _build _xb .$fb");
+   system ("rm -fr    _build _xb");
 
 // add repo, install, remove n rm repo  (just tryna be neat)
    system ("$f remote-add --no-gpg-verify $repo _repo");
