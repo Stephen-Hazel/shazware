@@ -6,7 +6,7 @@
    $arg = '';   if ($argc > 1)  $arg = $argv [1];
 
 // repo name n app triplet
-   $repo = "sh_repo";   $app = "app.shaz";
+   $repo = "sh_repo";   $app = "app.shaz.util";
    $f = "flatpak";      $fb = "flatpak-builder";
 
 // source => _build

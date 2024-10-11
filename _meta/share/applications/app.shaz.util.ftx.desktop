@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Exec=recent %F
-Name=Recent
-GenericName=Recent - list files most recently touched
-Icon=app.shaz.ftx.png
+Exec=ftx %F
+Name=FTx
+GenericName=Find TeXt
+Icon=app.shaz.util.ftx.png
 Terminal=false
 Categories=Development;IDE;Qt;
 MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;application/vnd.qt.qmakeprofile;application/vnd.qt.xml.resource;text/x-qml;text/x-qt.qml;text/x-qt.qbs;
