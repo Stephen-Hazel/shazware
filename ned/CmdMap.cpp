@@ -14,13 +14,15 @@ bool (*Cmd [])() = {
    BlkRit,  /*1A*/  BlkLft, /*1B*/
    BlkDel,  /*1C*/  BlkCopy,/*1D*/  BlkMove,  /*1E*/  BlkFmt,   /*1F*/
    BlkCpy,  /*20*/  BlkPst, /*21*/
-   Find,    /*22*/  FindNxt,/*23*/  Rplc,     /*24*/
+   Find,    /*22*/  FindNxt,/*23*/
+   Rplc,    /*24*/
    Wipe,    /*25*/  Load,   /*26*/  Save,     /*27*/  SaveAs,   /*28*/
    Quit,    /*29*/
    UnDelRow,/*2A*/
    TglSqnc, /*2B*/  RptSqnc,/*2C*/
    UpCase,  /*2D*/  LoCase, /*2E*/
-   BlkSum,  /*2F*/  BlkHop  /*30  outofseq*/
+   BlkSum,  /*2F*/  BlkHop, /*30  outofseq*/
+   FindPrv  /*31*/  // WHATEV:/
 };
 
 cmdmap CmdMap [] = {
@@ -68,6 +70,7 @@ cmdmap CmdMap [] = {
    {CTL|'s',     "\x2F"},      // BlkSum
    {CTL|'f',     "\x22"},      // Find
    {CTL|'g',     "\x23"},      // FindNxt
+   {CTL|'d',     "\x31"},      // FindPrv
    {CTL|'r',     "\x24"},      // Rplc
    {    F01_KEY, "\x26"},      // Load
    {    F02_KEY, "\x27"},      // Save

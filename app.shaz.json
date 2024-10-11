@@ -1,5 +1,5 @@
 {
-	"app-id":  "app.pianocheetah.shazware",
+	"app-id":  "app.shaz",
 	"command": "ftx",
 	"sdk":     "org.kde.Sdk",
 	"runtime": "org.kde.Platform",

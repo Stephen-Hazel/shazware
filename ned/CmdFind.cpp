@@ -25,6 +25,28 @@ bool FindNxt ()
    return false;
 }
 
+bool FindPrv ()
+// parallel to FindNxt :/
+{ ubyt2 ro, roend;
+  ubyte co, coend;
+  pcol  col;
+   if (FindLen) {
+      ro = CsrRow;   co = CsrCol;
+      if (ro >= EndRow)  {ro = EndRow;   co = 0;}
+      roend = ro;
+      do {
+         if (co && (Row [ro]->Len >= FindLen))
+            for (col = Row [ro]->Col;  co--;)
+               if (StrICmp (FindStr, & col [co]))
+                  {MoveToMid (ro, co);   PutScr ();   return true;}
+         if (ro-- == 0)  ro = EndRow;
+         co = Row [ro]->Len;
+         if (FindLen > co) co = 0;   else co -= (FindLen-1);
+      } while (ro != roend);
+   }
+   return false;
+}
+
 bool Find2 ()
 { char *ptr;
    FindLen = SC(ubyte,StrLn (FindStr));
