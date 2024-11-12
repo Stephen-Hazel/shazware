@@ -4,7 +4,7 @@
 
 void FTx::DClk (int row, int col)
 { BStr  s, fn, c;      (void)col;
-DBG("DClk bgn r=`d", row);
+//DBG("DClk bgn r=`d", row);
    if (row == -1)  return;
 
    StrCp (s, UnQS (ui->tblList->item (row, 0)->text ()));
@@ -138,12 +138,12 @@ void FTx::Find ()
   StrArr tb (CC("FNLst"), 20000, 13000*sizeof(TStr));
    StrCp (_dir, UnQS (ui->ledDir->text ()));
    StrCp (_s,   UnQS (ui->ledFind->text ()));
-DBG("Find dir=`s s=`s", _dir, _s);
+//DBG("Find dir=`s s=`s", _dir, _s);
    if (*_s == '\0')  {Gui.Hey ("I need a string to find...");   return;}
 
    _tb = & tb;
    f.DoDir (_dir, this, DoDir);
-DBG("found `d", tb.num);
+//DBG("found `d", tb.num);
    Sort (tb.str, tb.num, sizeof (tb.str [0]), TblCmp);
    ui->tblList->hide ();
    ui->tblList->clearContents ();
@@ -165,8 +165,7 @@ DBG("found `d", tb.num);
 
 
 void FTx::Dir ()
-// list off files in this dir w matching str;  show em;  search 1st
-{ TStr s;
+{ TStr s;                              // pick dir ta search
    StrCp (s, UnQS (ui->ledDir->text ()));
    if (Gui.AskDir (s, "Pick a top directory"))
       {ui->ledDir->setText (s);   StrCp (_dir, s);}

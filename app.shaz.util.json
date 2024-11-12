@@ -1,29 +1,29 @@
 {
-	"app-id":  "app.shaz.util",
-	"command": "ftx",
-	"sdk":     "org.kde.Sdk",
-	"runtime": "org.kde.Platform",
-	"runtime-version": "6.6",
-	"finish-args": [
-		"--filesystem=host",
-		"--socket=wayland",
-		"--socket=fallback-x11",
-		"--device=dri"
-	],
-	"modules": [
-		{
-			"name": "bin_to_app",
-			"buildsystem": "simple",
-			"build-commands": [ 
-				"cp -pr share /app",
-				"cp -pr bin   /app"
-			],
-			"sources": [
-				{
-					"type": "dir", 
-					"path": "_build/files"
-				}
-			]
-		}
-	]
+   "app-id":  "app.shaz.util",
+   "command": "ftx",
+   "sdk":     "org.kde.Sdk",
+   "runtime": "org.kde.Platform",
+   "runtime-version": "6.7",
+   "finish-args": [
+      "--filesystem=host",
+      "--socket=wayland",
+      "--socket=fallback-x11",
+      "--device=dri"
+   ],
+   "modules": [
+      {
+         "name": "bin_to_app",
+         "buildsystem": "simple",
+         "build-commands": [
+            "cp -pr share /app",
+            "cp -pr bin   /app"
+         ],
+         "sources": [
+            {
+               "type": "dir",
+               "path": "_build/files"
+            }
+         ]
+      }
+   ]
 }
