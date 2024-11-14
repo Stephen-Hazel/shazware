@@ -29,7 +29,7 @@ ScrDef Scr;
 #define CDPBLUE  CC("#004080")
 #define CTURQ    CC("#00FFFF")
 #define CWHITE   CC("#FFFFFF")
-#define CDKGREEN CC("#156146")
+#define CDKPURP  CC("#55007F")
 
 void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, char flip = '\0')
 { ubyte ln = 0;
@@ -42,9 +42,9 @@ void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, char flip = '\0')
    s [end-bgn+1] = '\0';
   char *f, *b;
    if (y) {                            // text  hilite / cursor / normal
-      if      (flip == 'h')  {f = CWHITE;    b = CDKGREEN;}
-      else if (flip)         {f = CWHITE;    b = CPINK;   }
-      else                   {f = CTURQ;     b = CDKBLUE; }
+      if      (flip == 'h')  {f = CWHITE;    b = CDKPURP;}
+      else if (flip)         {f = CWHITE;    b = CPINK;  }
+      else                   {f = CTURQ;     b = CDKBLUE;}
    }
    else {                              // info  cursor / status
       if (flip)  {f = CDKBLUE;   b = CTURQ;  }
@@ -147,6 +147,7 @@ void JotDn (char Key)
                              *(CsrRowPtr () + CsrCol) = Key;}
       }
    }
+   ReFind ();
    PutRow (ScrRow);
    if (! Rit ())  Rtrn ();
 }

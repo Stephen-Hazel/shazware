@@ -30,25 +30,23 @@ bool FindNxt ()
    MoveToMid (F [p].ro, F [p].co);   PutScr ();   return true;
 }
 
-bool Find2 ()
+bool ReFind ()
 // uppercase it, find all the spots n buffer em, FindNxt()
 { char *ptr;
   ubyt2 ro;
   ubyte co, len;
   pcol  col;
+   FLn = 0;   PutScr ();
    if (! (FindLen = SC(ubyte,StrLn (FindStr))))  return false;
 
    for (ptr = FindStr;  (*ptr = ToUpper (*ptr));  ptr++);
-   FLn = 0;
    for (ro = 0;  ro < EndRow;  ro++) {
       col = Row [ro]->Col;
       len = Row [ro]->Len;
       for (co = 0;  co+FindLen < len;  co++)
          if (StrICmp (FindStr, & col [co])) {
-            if (FLn >= BITS (F))  {
-DBG("RATS outa find room");
-               return true;
-            }
+            if (FLn >= BITS (F))  return true;
+
             F [FLn].ro = ro;   F [FLn].co = co;   FLn++;
             co += (FindLen-1);
          }
@@ -57,9 +55,9 @@ DBG("RATS outa find room");
 }
 
 bool Find ()
-// just get string n Find2
+// just get string n ReFind
 {  KeyMode = 's';   KM1 = 'y';
-   KMMsg = CC("Find: ");   KMBuf = FindStr;   KMCmd = Find2;
+   KMMsg = CC("Find: ");   KMBuf = FindStr;   KMCmd = ReFind;
    return true;
 }
 

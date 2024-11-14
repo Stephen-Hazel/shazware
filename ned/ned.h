@@ -82,7 +82,7 @@ bool Rit(), Lft(), Up(), Dn(), Top(), Bot(), BlkHop(), PgUp(), PgDn(),
      BlkRit(), BlkLft(),
      BlkDel(), BlkCopy(), BlkMove(), BlkFmt (),
      BlkCpy(), BlkPst(), BlkSum(),
-     Find(), FindNxt(), FindPrv(), Rplc(), RplcNxt (),
+     Find(), ReFind (), FindNxt(), FindPrv(), Rplc(), RplcNxt (),
      Wipe(), Load(), Save(), SaveAs(), Quit(),
      UnDelRow(), TglSqnc(), RptSqnc(), UpCase(), LoCase(), EndCmd();
 
