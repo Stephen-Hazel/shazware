@@ -20,6 +20,7 @@ typedef char *pcol;          // pointer to a particular row's columns
 typedef mem  *pmem;
 
 typedef struct {QPixmap *pm;   ubyt2 wLn, hCh, hBL;   ubyte min, max;} ScrDef;
+typedef struct {ubyt2 ro;   ubyte co;} FPosDef;
 
 // all those nasty globs...
 extern pmem   MemTop;                     // memory management
@@ -32,6 +33,8 @@ extern ubyt2  BlkBgnRow, BlkEndRow;       // block marking params
 extern ubyte  BlkBgnCol, BlkEndCol;
 extern char   FindStr [], RplcStr [], FName [];  // strings
 extern ubyte  FindLen,    RplcLen;
+extern FPosDef F [100000];
+extern ubyt4   FLn;
 extern key    KeySqnc [];                 // (weak) macro control
 extern ubyte  SqncLen;
 extern bool (*Cmd [])();                  // command key mapping

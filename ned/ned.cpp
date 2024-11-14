@@ -13,6 +13,8 @@ ubyt2  BlkBgnRow, BlkEndRow;           // block related stuff
 ubyte  BlkBgnCol, BlkEndCol;
 TStr   FindStr, RplcStr, FName;        // strings
 ubyte  FindLen, RplcLen;
+FPosDef F [100000];
+ubyt4   FLn;
 key    KeySqnc [MAX_SQNC];             // seqence (macro) stuff
 ubyte  SqncLen;
 char   KeyMode, *KMMsg, *KMBuf, KM1;
@@ -27,8 +29,9 @@ ScrDef Scr;
 #define CDPBLUE  CC("#004080")
 #define CTURQ    CC("#00FFFF")
 #define CWHITE   CC("#FFFFFF")
+#define CDKGREEN CC("#156146")
 
-void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, bool flip)
+void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, char flip = '\0')
 { ubyte ln = 0;
   TStr  s;
    if (bgn  < pro->Len) {
@@ -38,9 +41,10 @@ void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, bool flip)
    MemSet (& s [ln], ' ', end-bgn+1-ln);
    s [end-bgn+1] = '\0';
   char *f, *b;
-   if (y) {                            // text  cursor / normal
-      if (flip)  {f = CWHITE;    b = CPINK;  }
-      else       {f = CTURQ;     b = CDKBLUE;}
+   if (y) {                            // text  hilite / cursor / normal
+      if      (flip == 'h')  {f = CWHITE;    b = CDKGREEN;}
+      else if (flip)         {f = CWHITE;    b = CPINK;   }
+      else                   {f = CTURQ;     b = CDKBLUE; }
    }
    else {                              // info  cursor / status
       if (flip)  {f = CDKBLUE;   b = CTURQ;  }
@@ -60,12 +64,15 @@ void Ro2Scr (prow pro, ubyte y, ubyte bgn, ubyte end, bool flip)
 
 void PutIt ()
 { TStr fn;
+  ubyt2 r;
+  ubyte i, c;
+  ubyt4 p;
    if (Scr.pm == nullptr)  return;     // no pixmap yet so scram
 
-  ubyt2 r = CsrRow - ScrRow;           // put changed rows
+   r = CsrRow - ScrRow;                // put changed rows
 //DBG("PutIt `d-`d", Scr.min, Scr.max);
-   for (ubyte i = Scr.min;  i <= Scr.max;  i++)
-      Ro2Scr ((r+i < EndRow) ? Row [r+i] : & Empt, i+1, 0, 79, false);
+   for (i = Scr.min;  i <= Scr.max;  i++)
+      Ro2Scr ((r+i < EndRow) ? Row [r+i] : & Empt, i+1, 0, 79);
 
    if (KeyMode)                        // put info - row, col, modes
         StrFmt (Info.Col, "`s`s", KMMsg, (KeyMode == 's') ? KMBuf : "");
@@ -73,12 +80,18 @@ void PutIt ()
            CsrRow+1, CsrCol+1, Over ? " [over]" : "",
                                Sqnc ? " [sqnc]" : "", FnName (fn, FName));
    Info.Len = SC(ubyte,StrLn (Info.Col));
-   Ro2Scr (& Info, 0, 0, 79, false);
+   Ro2Scr (& Info, 0, 0, 79);
+
+// any finds on top
+   for (i = Scr.min;  i <= Scr.max;  i++)  for (p = 0;  p < FLn;  p++)
+      if (F [p].ro == r+i)
+         {c = F [p].co;   Ro2Scr (Row [r+i], i+1, c, c+FindLen-1, 'h');}
 
    if (KeyMode == 's')                 // put shown cursor
-        Ro2Scr (& Info, 0, Info.Len, Info.Len, true);
+        Ro2Scr (& Info, 0, Info.Len, Info.Len, 'y');
    else Ro2Scr ((CsrRow < EndRow) ? Row [CsrRow] : & Empt,
-                ScrRow+1, CsrCol, CsrCol, true);
+                ScrRow+1, CsrCol, CsrCol, 'y');
+
    Gui.W ()->update ();
 }
 
@@ -107,7 +120,7 @@ bool PutBlk ()
    for (r = SC(ubyt2,CsrRow-ScrRow+topScr), i = SC(ubyt2,topScr);
         i <= botScr;  i++, r++)
       Ro2Scr ((r < EndRow) ? Row [r] : & Empt, SC(ubyte,i+1),
-              bgnCol, endCol, true);
+              bgnCol, endCol, 'h');
    Gui.W ()->update ();   Zzz (125);   // 1/8 sec i hope
    PutScr ();   PutIt ();              // and restore
    return true;

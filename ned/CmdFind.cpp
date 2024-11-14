@@ -2,60 +2,62 @@
 
 #include "ned.h"
 
-bool FindNxt ()
-// FAIL IF: no FindStr | couldn't find it  ...duhhhh
-// check rows, wrapping at EndRow, stopping at CsrRow:
-//   until a match is found:        leave cursor here, fix screen.
-//      or old position is reached: fail (no match found).
-{ ubyt2 ro, roend;
-  ubyte co, coend;
-  pcol  col;
-   if (FindLen) {
-      ro = CsrRow;   co = CsrCol+1;
-      if (ro >= EndRow)  ro = co = 0;
-      roend = ro;
-      do {
-         if ((coend = Row [ro]->Len) >= FindLen)
-            for (coend -= FindLen, col = Row [ro]->Col;  co <= coend;  co++)
-               if (StrICmp (FindStr, & col [co]))
-                  {MoveToMid (ro, co);   PutScr ();   return true;}
-         co = 0;   if (++ro == EndRow)  ro = 0;
-      } while (ro != roend);
-   }
-   return false;
-}
-
 bool FindPrv ()
 // parallel to FindNxt :/
-{ ubyt2 ro, roend;
-  ubyte co, coend;
-  pcol  col;
-   if (FindLen) {
-      ro = CsrRow;   co = CsrCol;
-      if (ro >= EndRow)  {ro = EndRow;   co = 0;}
-      roend = ro;
-      do {
-         if (co && (Row [ro]->Len >= FindLen))
-            for (col = Row [ro]->Col;  co--;)
-               if (StrICmp (FindStr, & col [co]))
-                  {MoveToMid (ro, co);   PutScr ();   return true;}
-         if (ro-- == 0)  ro = EndRow;
-         co = Row [ro]->Len;
-         if (FindLen > co) co = 0;   else co -= (FindLen-1);
-      } while (ro != roend);
+{ ubyt4 p;
+   if (! FLn)  return false;
+
+   for (p = FLn;  p;  p--) {
+      if ((F [p-1].ro == CsrRow) && (F [p-1].co < CsrCol))  break;
+      if  (F [p-1].ro <  CsrRow)  break;
    }
-   return false;
+   if (p == 0)  p = FLn;
+   --p;
+   MoveToMid (F [p].ro, F [p].co);   PutScr ();   return true;
+}
+
+bool FindNxt ()
+// FAIL IF: nothin found
+// go thru buf till ya got somethin;  else wrap
+{ ubyt4 p;
+   if (! FLn)  return false;
+
+   for (p = 0;  p < FLn;  p++) {
+      if ((F [p].ro == CsrRow) && (F [p].co >  CsrCol))  break;
+      if  (F [p].ro >  CsrRow)  break;
+   }
+   if (p == FLn)  p = 0;
+   MoveToMid (F [p].ro, F [p].co);   PutScr ();   return true;
 }
 
 bool Find2 ()
+// uppercase it, find all the spots n buffer em, FindNxt()
 { char *ptr;
-   FindLen = SC(ubyte,StrLn (FindStr));
+  ubyt2 ro;
+  ubyte co, len;
+  pcol  col;
+   if (! (FindLen = SC(ubyte,StrLn (FindStr))))  return false;
+
    for (ptr = FindStr;  (*ptr = ToUpper (*ptr));  ptr++);
+   FLn = 0;
+   for (ro = 0;  ro < EndRow;  ro++) {
+      col = Row [ro]->Col;
+      len = Row [ro]->Len;
+      for (co = 0;  co+FindLen < len;  co++)
+         if (StrICmp (FindStr, & col [co])) {
+            if (FLn >= BITS (F))  {
+DBG("RATS outa find room");
+               return true;
+            }
+            F [FLn].ro = ro;   F [FLn].co = co;   FLn++;
+            co += (FindLen-1);
+         }
+   }
    return FindNxt ();
 }
 
 bool Find ()
-// just get string n use Find2 to uppercase it, get FindLen, FindNxt()
+// just get string n Find2
 {  KeyMode = 's';   KM1 = 'y';
    KMMsg = CC("Find: ");   KMBuf = FindStr;   KMCmd = Find2;
    return true;
