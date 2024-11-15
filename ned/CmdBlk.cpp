@@ -280,11 +280,14 @@ bool BlkPst ()
   ubyte co = 0;
   char  txt, *col;
    if ((len = Gui.ClipLen ()) == 0)  return false;
+DBG("paste len=`d", len);
    buf = new char [len+1];
    Gui.ClipGet (buf, len+1);
+DBG("paste buf=`s", buf);
    if ((StrCh (buf, '\n') == nullptr) &&
        ((ro >= EndRow) || (Row [ro]->Len + len <= 80)) &&
        (CsrCol + len <= 80)) {
+DBG("no cr");
    // single line that'll fit right here
       if ((ro < EndRow) && (CsrCol < Row [ro]->Len)) {
            if (! InsCols   (ro,          CsrCol,SC(ubyte,len)))
@@ -297,7 +300,9 @@ bool BlkPst ()
    }
    else {
    // just like loading a file
-      for (pos = 0; pos < len; pos++) {
+DBG("got cr");
+      for (pos = 0;  pos < len;  pos++) {
+DBG("pos=`d/`d", pos, len);
          txt = buf [pos];
          if (((txt < ' ') || (txt > '~')) && (txt != '\n') && (txt != '\t'))
             continue;

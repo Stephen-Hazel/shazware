@@ -212,6 +212,11 @@ void NEd::keyPressEvent (QKeyEvent *e)
 }
 
 
+void mousePressEvent (QMouseEvent *e)
+{
+}
+
+
 void NEd::wheelEvent (QWheelEvent  *e)
 { int j = e->angleDelta ().y () / 40;
 //DBG("mousewheel=`d ScrRow=`d CsrRow=`d, EndRow=`d EndScr=`d",
@@ -266,7 +271,7 @@ void NEd::resizeEvent (QResizeEvent *e)
 void NEd::Init ()                      // font MUST BE MONOSPACE FIXED WIDTH !!
 { ubyte nr;
   ubyt2 i;
-  TStr  s;
+  TStr  s, fn;
   char *f;
    Gui.WinLoad ();
   QFontMetrics fm (Gui.A ()->font ());      // 80 cols - ONLY EVER !!!
@@ -284,16 +289,16 @@ void NEd::Init ()                      // font MUST BE MONOSPACE FIXED WIDTH !!
    EndScr = nr-1;   Scr.pm = new QPixmap (Scr.wLn, (nr+1)*Scr.hCh);
    StrCp (FName, Gui.Arg (0));   StrCp (s, Gui.Arg (1));   Load ();
    if (*s) {
-      if ((i = St2In (s)))  {MoveToMid (i-1, 0);   PutScr ();}
+      if ((i = St2In (s)))  MoveToMid (i-1, 0);
       else {
          MemCp (FindStr, s, 79);   FindStr [79] = '\0';
-         for (f = s, FindLen = 0;  *f;  f++)
-            FindStr [FindLen++] = CHUP (*f);
+         for (f = s, FindLen = 0;  *f;  f++)  FindStr [FindLen++] = CHUP (*f);
          ReFind ();   FindNxt ();
       }
    }
    PutScr ();   PutIt ();
-   Gui.SetTtl (StrFmt (s, "`s - Ned", FName));
+
+   Gui.SetTtl (StrFmt (s, "`s - Ned", FnName (fn, FName)));
 }
 
 void NEd::Quit ()
