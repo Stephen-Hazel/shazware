@@ -282,17 +282,18 @@ void NEd::Init ()                      // font MUST BE MONOSPACE FIXED WIDTH !!
 //Scr.wLn, Scr.wLn/80, Scr.wLn%80, Scr.hCh, Scr.hBL, nr,
 //fm.ascent(), fm.descent(), fm.height(), fm.leading(), fm.lineSpacing());
    EndScr = nr-1;   Scr.pm = new QPixmap (Scr.wLn, (nr+1)*Scr.hCh);
-   StrCp (FName, Gui.Arg (0));   StrCp (s,  Gui.Arg (1));   Load ();
+   StrCp (FName, Gui.Arg (0));   StrCp (s, Gui.Arg (1));   Load ();
    if (*s) {
       if ((i = St2In (s)))  {MoveToMid (i-1, 0);   PutScr ();}
       else {
-         for (f = s, FindLen = 0;  *f && (FindLen < 80);  FindLen++)
-            FindStr [FindLen] = CHUP (*f++);
-         FindStr [FindLen] = '\0';
-         FindNxt ();
+         MemCp (FindStr, s, 79);   FindStr [79] = '\0';
+         for (f = s, FindLen = 0;  *f;  f++)
+            FindStr [FindLen++] = CHUP (*f);
+         ReFind ();   FindNxt ();
       }
    }
    PutScr ();   PutIt ();
+   Gui.SetTtl (StrFmt (s, "`s - Ned", FName));
 }
 
 void NEd::Quit ()

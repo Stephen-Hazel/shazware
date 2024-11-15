@@ -43,7 +43,7 @@ bool ReFind ()
    for (ro = 0;  ro < EndRow;  ro++) {
       col = Row [ro]->Col;
       len = Row [ro]->Len;
-      for (co = 0;  co+FindLen < len;  co++)
+      for (co = 0;  co+FindLen <= len;  co++)
          if (StrICmp (FindStr, & col [co])) {
             if (FLn >= BITS (F))  return true;
 
@@ -51,13 +51,15 @@ bool ReFind ()
             co += (FindLen-1);
          }
    }
-   return FindNxt ();
+   return true;
 }
+
+bool Find2 () {ReFind ();   return FindNxt ();}
 
 bool Find ()
 // just get string n ReFind
 {  KeyMode = 's';   KM1 = 'y';
-   KMMsg = CC("Find: ");   KMBuf = FindStr;   KMCmd = ReFind;
+   KMMsg = CC("Find: ");   KMBuf = FindStr;   KMCmd = Find2;
    return true;
 }
 
