@@ -147,9 +147,8 @@ void JotDn (char Key)
                              *(CsrRowPtr () + CsrCol) = Key;}
       }
    }
-   ReFind ();
-   PutRow (ScrRow);
-   if (! Rit ())  Rtrn ();
+   FLn = 0;                            // no find buf no mo
+   PutRow (ScrRow);   if (! Rit ())  Rtrn ();
 }
 
 
