@@ -120,7 +120,7 @@ bool PutBlk ()
    for (r = SC(ubyt2,CsrRow-ScrRow+topScr), i = SC(ubyt2,topScr);
         i <= botScr;  i++, r++)
       Ro2Scr ((r < EndRow) ? Row [r] : & Empt, SC(ubyte,i+1),
-              bgnCol, endCol, 'h');
+              bgnCol, endCol, 'y');
    Gui.W ()->update ();   Zzz (125);   // 1/8 sec i hope
    PutScr ();   PutIt ();              // and restore
    return true;
@@ -212,8 +212,14 @@ void NEd::keyPressEvent (QKeyEvent *e)
 }
 
 
-void mousePressEvent (QMouseEvent *e)
-{
+void NEd::mousePressEvent (QMouseEvent *e)
+// y=25ish for below info bar
+{ Qt::MouseButton b;
+  QPointF p;
+   b = e->button ();   p = e->position ();
+DBG("btn=`s x=`d y=`d",
+(b == Qt::LeftButton) ? "L" : ((b == Qt::RightButton) ? "R" : ""),
+(int)p.x (), (int)p.y ());
 }
 
 

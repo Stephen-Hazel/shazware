@@ -96,10 +96,11 @@ public:
    void Init (), Quit ();
 
 protected:
-   void wheelEvent    (QWheelEvent  *e);
-   void keyPressEvent (QKeyEvent    *e);
-   void paintEvent    (QPaintEvent  *e);
-   void resizeEvent   (QResizeEvent *e);
+   void keyPressEvent   (QKeyEvent    *e);
+   void wheelEvent      (QWheelEvent  *e);
+   void mousePressEvent (QMouseEvent  *e);
+   void paintEvent      (QPaintEvent  *e);
+   void resizeEvent     (QResizeEvent *e);
 };
 
 #endif // NED_H
