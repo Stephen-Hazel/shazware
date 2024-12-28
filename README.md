@@ -1,18 +1,15 @@
 
 # shazware -- [S]teve [HAZ]el's soft[WARE]
 
-environment:  Qt c++ on Kubuntu, RasPi64, ChromeOS
+environment:  Qt c++ inna flatpak
 
 Uses my stv library of c++ assumed to be in ../../stv/*
-add ../../stv/os.cpp, ui.cpp, uiKey.cpp
-
-Also note that font comes from ~/.config/StephenHazel/NEd.conf 's
-font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
+CMakeList.txt s have ../../stv/os.cpp, ui.cpp, uiKey.cpp, etc
 
 --------------------------------------------------------------------------------
 
 ## todo
-
+```
    l   - dir arg
          strip n resort by .ext
    ned - when to clear FLn ?
@@ -20,6 +17,7 @@ font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
          double click on a word to find?
    ftx - enclose any space in findstr for ned
    doc n package it as app.shaz - flatpak freeware
+```
    
 --------------------------------------------------------------------------------
 
