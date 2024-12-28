@@ -9,12 +9,17 @@ add ../../stv/os.cpp, ui.cpp, uiKey.cpp
 Also note that font comes from ~/.config/StephenHazel/NEd.conf 's
 font and fontpt lines  (or defaults to Monospace 14 and 30 rows)
 
-a .deb for kubuntu and raspi are in the zRelease dir (ignore the resta the junk)
-
 --------------------------------------------------------------------------------
 
 ## todo
-   NEd needs a find previous :/
+
+   l   - dir arg
+         strip n resort by .ext
+   ned - when to clear FLn ?
+         dbg BlkPst
+         double click on a word to find?
+   ftx - enclose any space in findstr for ned
+   doc n package it as app.shaz - flatpak freeware
    
 --------------------------------------------------------------------------------
 
