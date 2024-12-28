@@ -302,7 +302,7 @@ DBG("no cr");
    // just like loading a file
 DBG("got cr");
       for (pos = 0;  pos < len;  pos++) {
-DBG("pos=`d/`d ch=`02X=`c", pos, len, buf [pos], buf [pos]);
+DBG("pos=`d/`d ch=`02x=`c", pos, len, buf [pos], buf [pos]);
          txt = buf [pos];
          if (((txt < ' ') || (txt > '~')) && (txt != '\n') && (txt != '\t'))
             continue;
