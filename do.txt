@@ -1,0 +1,32 @@
+l   - dir arg
+      strip n resort by .ext
+
+ned - dbg BlkPst - copy DEF works - KDE sees it fine
+         paste gets 450 bytes of garbage starting with \0
+      when to clear FLn ?
+      double click on a word to find?
+      mark line 1 w block - hilite doesn't show
+
+ftx - enclose any space in findstr for ned
+      kick ned with lineno upon dblclick on right pane line
+
+
+think/spec______________________________________________________________________
+
+backups - php cron to cp dadata/_ => add big/yyyymmdd,   replace bu
+
+get win updated n start on new stv lib w Qt.  so far:
+   cmake version
+   #include stat/x.h
+   diff old stv to linux stv
+
+   make linux files be case insensitive for all my apps
+      os.h - File::Open(paths/fn,r) - case INsensitive on read
+         if open fails  (prob cuz case),
+         lowercase the paths/fn and StrCm existing paths/fn to find it to open,r
+   only use / (not \) and \n (not \r\n) everywhere
+
+
+do2/doc_________________________________________________________________________
+
+doc n package it as app.shaz.util - flatpak freeware - esp for raspi
