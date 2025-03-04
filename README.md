@@ -4,7 +4,7 @@
 environment:  Qt c++ inna flatpak
 
 Uses my stv library of c++ assumed to be in ../../stv/*
-CMakeList.txt s have ../../stv/os.cpp, ui.cpp, uiKey.cpp, etc
+CMakeList.txt s have ../../stv/os.cpp, ui.cpp, etc
 
 --------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ CMakeList.txt s have ../../stv/os.cpp, ui.cpp, uiKey.cpp, etc
    ftx - enclose any space in findstr for ned
    doc n package it as app.shaz - flatpak freeware
 ```
-   
+
 --------------------------------------------------------------------------------
 
 ## big

@@ -2,7 +2,6 @@
 #define NED_H
 
 #include "../../stv/ui.h"
-#include "../../stv/uiKey.h"
 
 #include <QPainter>
 

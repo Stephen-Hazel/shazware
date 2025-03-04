@@ -27,7 +27,6 @@ set(PROJECT_SOURCES
    CmdMap.cpp
    stv/os.cpp
    stv/ui.cpp
-   stv/uiKey.cpp
 )
 
  qt_add_executable(ned rc/rc.qrc

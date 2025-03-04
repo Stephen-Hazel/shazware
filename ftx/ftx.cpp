@@ -198,6 +198,7 @@ void FTx::Quit ()
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   FTx w;
+DBGTH("FTx");
    App.Init ();   Gui.Init (& a, & w, "FTx", 'f');   w.Init ();
   int rc = Gui.Loop ();                              w.Quit ();
    return rc;
