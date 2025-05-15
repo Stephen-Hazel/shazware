@@ -3,7 +3,7 @@
  "command": "ftx",
  "sdk":     "org.kde.Sdk",
  "runtime": "org.kde.Platform",
- "runtime-version":          "6.8",
+ "runtime-version":          "6.9",
  "finish-args": [
   "--filesystem=host",
   "--socket=wayland",

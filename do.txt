@@ -1,14 +1,15 @@
-l   - dir arg
-      strip n resort by .ext
+l
+   dir arg
+   strip n resort by .ext
 
-ned - dbg BlkPst - copy DEF works - KDE sees it fine
-         paste gets 450 bytes of garbage starting with \0
-      when to clear FLn ?
-      double click on a word to find?
-      mark line 1 w block - hilite doesn't show
+ned
+   ScrRow = click row IN ADD to what i got
+   paste ok now?
+   mark line 1 w block - hilite doesn't show
 
-ftx - enclose any space in findstr for ned
-      kick ned with lineno upon dblclick on right pane line
+ftx
+   enclose any space in findstr for ned
+   kick ned with lineno upon dblclick on right pane line
 
 
 think/spec______________________________________________________________________

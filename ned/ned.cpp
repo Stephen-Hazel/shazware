@@ -147,8 +147,9 @@ void JotDn (char Key)
                              *(CsrRowPtr () + CsrCol) = Key;}
       }
    }
-   FLn = 0;                            // no find buf no mo
-   PutRow (ScrRow);   if (! Rit ())  Rtrn ();
+   if (FLn)  {FLn = 0;   PutScr ();}   // no find buf no mo
+   else                  PutRow (ScrRow);
+   if (! Rit ())  Rtrn ();
 }
 
 
@@ -211,15 +212,37 @@ void NEd::keyPressEvent (QKeyEvent *e)
 }
 
 
-void NEd::mousePressEvent (QMouseEvent *e)
-// y=25ish for below info bar
-{ Qt::MouseButton b;
-  QPointF p;
-   b = e->button ();   p = e->position ();
-DBG("btn=`s x=`d y=`d",
-(b == Qt::LeftButton) ? "L" : ((b == Qt::RightButton) ? "R" : ""),
-(int)p.x (), (int)p.y ());
+void NEd::mousePressEvent (QMouseEvent *me)
+{ Qt::MouseButton b = me->button ();
+  QPointF p = me->position ();
+  ubyt4   x = (int) p.x (),      y = (int) p.y ();
+  ubyte   c = x * 80 / Scr.wLn,  r = y / Scr.hCh - 1;
+// DBG("ScrRow=`d CsrRow=`d, EndRow=`d EndScr=`d",
+// ScrRow, CsrRow, EndRow, EndScr);
+// DBG("btn=`s x=`d y=`d r=`d c=`d",
+// (b == Qt::LeftButton) ? "L" : ((b == Qt::RightButton) ? "R" : ""),
+// x, y, r, c);
+   CsrRow += ((sbyte)r - (sbyte)ScrRow);   ScrRow = r;   CsrCol = c;
+   PutIt ();
 }
+
+void NEd::mouseDoubleClickEvent (QMouseEvent *me)
+{ QPointF p = me->position ();
+  ubyt4   x = (int) p.x (),      y = (int) p.y ();
+  ubyte   c = x * 80 / Scr.wLn,  r = y / Scr.hCh - 1;
+   CsrRow += ((sbyte)r - (sbyte)ScrRow);   ScrRow = r;   CsrCol = c;
+  pcol  ptr = CsrRowPtr ();
+  ubyte len = CsrRowLen ();
+   if ((ptr [c] == ' ') || (c >= len))  return;
+
+  ubyte b, e;
+   for (b = CsrCol;   b          && (ptr [b-1] != ' ');  b--)  ;
+   for (e = CsrCol;  (e < len-1) && (ptr [e+1] != ' ');  e++)  ;
+   FindLen = e-b+1;   MemCp (FindStr, & ptr [b], FindLen);
+                      FindStr [FindLen] = '\0';
+   ReFind ();   PutScr ();   PutIt ();
+}
+
 
 
 void NEd::wheelEvent (QWheelEvent  *e)

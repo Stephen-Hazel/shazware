@@ -5,8 +5,7 @@
 bool FindPrv ()
 // parallel to FindNxt :/
 { ubyt4 p;
-   if (! FLn)  return false;
-
+   if (! FLn)  {ReFind ();   if (! FLn)  return false;}
    for (p = FLn;  p;  p--) {
       if ((F [p-1].ro == CsrRow) && (F [p-1].co < CsrCol))  break;
       if  (F [p-1].ro <  CsrRow)  break;
@@ -17,11 +16,9 @@ bool FindPrv ()
 }
 
 bool FindNxt ()
-// FAIL IF: nothin found
 // go thru buf till ya got somethin;  else wrap
 { ubyt4 p;
-   if (! FLn)  return false;
-
+   if (! FLn)  {ReFind ();   if (! FLn)  return false;}
    for (p = 0;  p < FLn;  p++) {
       if ((F [p].ro == CsrRow) && (F [p].co >  CsrCol))  break;
       if  (F [p].ro >  CsrRow)  break;
