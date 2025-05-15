@@ -3,12 +3,10 @@ l
    strip n resort by .ext
 
 ned
-   ScrRow = click row IN ADD to what i got
-   paste ok now?
-   mark line 1 w block - hilite doesn't show
+   unhilite cursor when setting csr pos w click
+   markin line 1 w block doesn't hilite :/
 
 ftx
-   enclose any space in findstr for ned
    kick ned with lineno upon dblclick on right pane line
 
 

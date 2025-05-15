@@ -3,13 +3,14 @@
 #include "ftx.h"
 
 void FTx::DClk (int row, int col)
-{ BStr fn, fs, pa;     (void)col;
+{ BStr fn, fs, pf, pa; (void)col;
 //DBG("DClk bgn r=`d", row);
    if (row == -1)  return;
 
    StrCp (fn, UnQS (ui->tblList->item (row, 0)->text ()));
    StrCp (fs, UnQS (ui->ledFind->text ()));
-   App.Spinoff (StrFmt (pa, "ned `s/`s `s", _dir, fn, fs));
+   StrFmt (pf, "`s/`s", _dir, fn);
+   App.Spinoff (StrFmt (pa, "ned `p `s", pf, fs));
 }
 
 
