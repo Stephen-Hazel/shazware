@@ -2,25 +2,22 @@
    defaults:
        listing only cur dir;  no dot files;  sort by dirVfile,type,name
        (don't ever list .git or .old dirs)
-   .   OpDot  list dot files too
-   d   OpDir  list subdirs too
-   s   OpSrt  sort by size
-   t          sort by datetime desc
+   .  list dot files too
+   d  list subdirs too
+   s  (Srt)  sort by size
+   t         sort by datetime desc
 */
 
 #include "stv/os.h"
 
-TStr  Top,    FN [512*1024], Tx;
+TStr  Top,    FN [512*1024];
 ubyt4 TopLn, NFN;
-bool OpDot, OpDir;
-char OpSrt;
+char  Srt;
 
 
 bool DoDir (void *ptr, char dfx, char *fn)
 {  (void)ptr;
-   if ( (dfx == 'f') && (NFN < BITS (FN)) &&
-        (*Tx ? (StrSt (fn, Tx) != nullptr) : true) )
-      StrCp (FN [NFN++], & fn [TopLn]);
+   if ((dfx == 'f') && (NFN < BITS (FN)))  StrCp (FN [NFN++], & fn [TopLn]);
    return false;
 }
 
@@ -29,14 +26,16 @@ int Cmp (void *v1, void *v2)
 { char *s1 = (char *)v1, *s2 = (char *)v2, *p;
   TStr  d1, d2, x1, x2, t1, t2;
   int   n1, n2, sl1, sl2, x, min;
-   if (OpSrt == 's') {                 // by size
+   if (Srt == 's') {                   // by size
       MemCp (x1, s1, 10);   x1 [10] = '\0';
       MemCp (x2, s2, 10);   x2 [10] = '\0';
       if (x = StrCm (x1, x2))  return x;
    }
-   if (OpSrt == 't') {                 // by datetime
+   if (Srt == 't') {                   // by datetime
       MemCp (x1, & s1 [11], 15);   x1 [15] = '\0';
       MemCp (x2, & s2 [11], 15);   x2 [15] = '\0';
+      if ((*x1 != ' ') && (*x2 == ' '))  return -1;
+      if ((*x1 == ' ') && (*x2 != ' '))  return  1;        // today, yest :/
       if (x = StrCm (x1, x2))  return x;
    }
    s1 += 31;   s2 += 31;
@@ -62,56 +61,75 @@ int Cmp (void *v1, void *v2)
 //______________________________________________________________________________
 int main (int argc, char *argv [])
 { File  f;
-  TStr  tm, nw, ar, szs, s;
+  char *a;
+  TStr  tm, szs, s, td, yd;
   ubyt4 sz, i, nd;
   Path  p;
+  bool  dot, dir, x, rats;
 DBGTH("l");
    if (getcwd (Top, sizeof (TStr)) == nullptr)
       {DBG ("getcwd failed");   return 99;}
-   *ar = '\0';   if (argc >= 2) StrCp (ar, argv [1]);      // parse args
-   *Tx = '\0';   if (argc >= 3) StrCp (Tx, argv [2]);      // search text
-   OpDot = StrCh (ar, '.') ? true : false;
-   OpDir = StrCh (ar, 'd') ? true : false;
-   OpSrt = '\0';   if (StrCh (ar, 's'))  OpSrt = 's';
-                   if (StrCh (ar, 't'))  OpSrt = 't';
-   TopLn = StrLn (Top) + 1;
-DBG("OpDot=`b OpDir=`b OpSrt=`c Top=`s Tx=`s", OpDot, OpDir, OpSrt, Top, Tx);
+DBG("init top=`s", Top);
+   dot = dir = x = rats = false;   Srt = '\0';
 
+   for (i = 1;  i < argc;  i++) {      // parse args
+      a = & argv [i][0];
+      if (a [1] == '\0') {
+         if      (*a == '.')  dot = true;   // .  show .dotfiles
+         else if (*a == 'd')  dir = true;   // d  deep dir list
+         else if (*a == 'x')  x   = true;   // x  just dir/filename
+         else if (*a == 's')  Srt = 's';    // s  sort by size
+         else if (*a == 't')  Srt = 't';    // t  sort by datetime
+      }
+      else  {StrAp (Top, CC("/"));   StrAp (Top, a);}
+   }
+DBG(".=`b d=`b x=`b srt=`c top=`s", dot, dir, x, Srt, Top);
+
+// list em
+   TopLn = StrLn (Top) + 1;
    nd = 0;
-   if (OpDir)  f.DoDir (Top, nullptr, DoDir);
-   else {
+   if (dir)  f.DoDir (Top, nullptr, DoDir);      // deep
+   else {                                        // flat
             nd = (ubyt4) p.DLst (Top, & FN [0],  65535);
       for (i = 0;  i < nd;  i++)  StrAp (FN [i], CC("/"));
       NFN = nd + (ubyt4) p.FLst (Top, & FN [nd], 65535);
    }
-DBG("nfn=`d", NFN);
-   if (! OpDot)  for (i = 0;  i < NFN;) {
+   if (NFN == BITS (FN))  rats = true;
+
+DBG("pre . nfn=`d nd=`d rats=`b", NFN, nd, rats);
+   if (! dot)  for (i = 0;  i < NFN;) {
       StrCp (s, FN [i]);   Fn2Name (s);
       if (StrSt (FN [i], CC("/.")) || (s [0] == '.'))
             MemCp (& FN [i], & FN [i+1], sizeof (FN [0]) * (--NFN - i));
       else  i++;
    }
-   Now (nw);
-   for (i = 0;  i < NFN;  i++) {       // get datetime,size
+DBG("nfn=`d nd=`d", NFN, nd);
+
+// get size n datetime
+   Now (td);   Now (yd, -60*60*24);
+   for (i = 0;  i < NFN;  i++) {
       if ((StrLn (FN [i])+32) >= sizeof (TStr))
          {DBG ("fn too long `s", FN [i]);   return 99;}
       StrFmt (s, "`s/`s", Top, FN [i]);
+
       if (i < nd)  StrCp (szs, CC("        --"));
-      else {
-         sz = f.Size (s);              // len 10
-         StrFmt (szs, "`>10d", sz);
-      }
-      f.TmStr (tm, s);                 // len 19
+      else {sz = f.Size (s);   StrFmt (szs, "`>10d", sz);}      // len 10
+
+      f.TmStr (tm, s);                 // len 19  n overwrite today,yest
+      if (! MemCm (tm, td, 8))  MemCp (tm, CC("   today"), 8);
+      if (! MemCm (tm, yd, 8))  MemCp (tm, CC("    yest"), 8);
+
       StrCp (s, FN [i]);               // s ends up at [31]
       StrFmt (FN [i], "`s `s `s", szs, tm, s);
    }
+DBG("got sz,dt nfn=`d nd=`d", NFN, nd);
 
    Sort (FN, NFN, sizeof (FN [0]), Cmp);
+DBG("sorted nfn=`d", NFN, nd);
 
-   for (i = 0;  i < NFN;  i++) {
-      if (! MemCm (nw, & FN [i][11], 8))    // overwrite w 'today'
-         MemCp (& FN [i][11], CC("   today"), 8);
-      printf ("%s\n", FN [i]);
-   }
+// dump em
+   for (i = 0;  i < NFN;  i++)  printf ("%s\n", & FN [i][x ? 31 : 0]);
+   if (rats)  printf ("ran outa space for filenames :(\n");
+
    return 0;
 }

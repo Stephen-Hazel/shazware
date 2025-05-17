@@ -223,7 +223,7 @@ void NEd::mousePressEvent (QMouseEvent *me)
 // (b == Qt::LeftButton) ? "L" : ((b == Qt::RightButton) ? "R" : ""),
 // x, y, r, c);
    CsrRow += ((sbyte)r - (sbyte)ScrRow);   ScrRow = r;   CsrCol = c;
-   PutIt ();
+   PutScr ();   PutIt ();
 }
 
 void NEd::mouseDoubleClickEvent (QMouseEvent *me)

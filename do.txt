@@ -1,10 +1,6 @@
 l
-   dir arg
-   strip n resort by .ext
-
-ned
-   unhilite cursor when setting csr pos w click
-   markin line 1 w block doesn't hilite :/
+   use .hidden
+   use l.cfg to sort .ext s properly
 
 ftx
    kick ned with lineno upon dblclick on right pane line
