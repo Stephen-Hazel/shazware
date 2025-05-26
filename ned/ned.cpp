@@ -233,11 +233,21 @@ void NEd::mouseDoubleClickEvent (QMouseEvent *me)
    CsrRow += ((sbyte)r - (sbyte)ScrRow);   ScrRow = r;   CsrCol = c;
   pcol  ptr = CsrRowPtr ();
   ubyte len = CsrRowLen ();
-   if ((ptr [c] == ' ') || (c >= len))  return;
+  char  ch, mn, mx;
+   if (c >= len)  return;
+
+   ch = CHUP (ptr [c]);
+   if      ((ch >= '0') && (ch <= '9'))  {mn = '0';   mx = '9';}
+   else if ((ch >= 'A') && (ch <= 'Z'))  {mn = 'A';   mx = 'Z';}
+   else  return;
 
   ubyte b, e;
-   for (b = CsrCol;   b          && (ptr [b-1] != ' ');  b--)  ;
-   for (e = CsrCol;  (e < len-1) && (ptr [e+1] != ' ');  e++)  ;
+   for (b = CsrCol;   b &&
+                      (CHUP (ptr [b-1]) >= mn) &&
+                      (CHUP (ptr [b-1]) <= mx);  b--)  ;
+   for (e = CsrCol;  (e < len-1) &&
+                      (CHUP (ptr [e+1]) >= mn) &&
+                      (CHUP (ptr [e+1]) <= mx);  e++)  ;
    FindLen = e-b+1;   MemCp (FindStr, & ptr [b], FindLen);
                       FindStr [FindLen] = '\0';
    ReFind ();   PutScr ();   PutIt ();
