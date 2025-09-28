@@ -10,7 +10,7 @@
 
 #include "stv/os.h"
 
-TStr  Top,    FN [512*1024];
+TStr  Top,    FN [1024*1024];
 ubyt4 TopLn, NFN;
 char  Srt;
 
