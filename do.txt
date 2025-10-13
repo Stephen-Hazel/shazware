@@ -1,27 +1,25 @@
+code____________________________________________________________________________
+
 l
-   use .hidden
-   use l.cfg to sort .ext s properly
+   load n use .hidden
+   use l.cfg to sort .ext s properly and give files a tag
 
 ftx
    kick ned with lineno upon dblclick on right pane line
 
 
-think/spec______________________________________________________________________
+spec____________________________________________________________________________
 
-backups - php cron to cp dadata/_ => add big/yyyymmdd,   replace bu
+test on raspi n get em workin (can flatpak do that arch?)
 
-get win updated n start on new stv lib w Qt.  so far:
-   cmake version
-   #include stat/x.h
-   diff old stv to linux stv
+make everything case insensitive
+   os.h - File::Open(paths/fn,r) - case INsensitive on read
+      if open fails  (prob cuz case),
+      lowercase the paths/fn and StrCm existing paths/fn to find it to open,r
 
-   make linux files be case insensitive for all my apps
-      os.h - File::Open(paths/fn,r) - case INsensitive on read
-         if open fails  (prob cuz case),
-         lowercase the paths/fn and StrCm existing paths/fn to find it to open,r
-   only use / (not \) and \n (not \r\n) everywhere
+backup - php cron to cp dadata/_ => big/yyyymmdd,   replace bu
 
 
-do2/doc_________________________________________________________________________
+doc_____________________________________________________________________________
 
-doc n package it as app.shaz.util - flatpak freeware - esp for raspi
+turn the crap i got now into fully formed docs
