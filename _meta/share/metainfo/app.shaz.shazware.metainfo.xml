@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
    
-  <id>app.pianocheetah.pianocheetah</id>
+  <id>app.shaz.shazware</id>
    
-  <name>PianoCheetah</name>
+  <name>ShazWare</name>
    
-  <summary>a better way to play it</summary>
+  <summary>Steve's Utilities</summary>
   
   <metadata_license>MIT</metadata_license>
-  <project_license>Unlicense</project_license>
+  <project_license>MIT</project_license>
    
   <url type="homepage">https://pianocheetah.app</url>
   <developer id="app.pianocheetah">
