@@ -1,9 +1,9 @@
 
 # shazware -- [S]teve [HAZ]el's soft[WARE]
 
-environment:  Qt c++ inna flatpak
+environment:  Qt c++ in a flatpak
 
-Uses my stv library of c++ assumed to be in ../../stv/*
+Uses my stv library of c++ assumed to be in ../stv/*
 CMakeList.txt s have ../../stv/os.cpp, ui.cpp, etc
 
 --------------------------------------------------------------------------------
@@ -12,18 +12,17 @@ CMakeList.txt s have ../../stv/os.cpp, ui.cpp, etc
 ```
    l   - dir arg
          strip n resort by .ext
-   ned - when to clear FLn ?
-         dbg BlkPst
-         double click on a word to find?
+   ned - when to clear find ?
+         debug BlockPaste (BlkPst)
    ftx - enclose any space in findstr for ned
-   doc n package it as app.shaz - flatpak freeware
+   doc n package it as app.shaz.util flatpak
 ```
 
 --------------------------------------------------------------------------------
 
 ## big
 
-dumps a big font to the ole console
+dumps a big "font" to the ole console
 
 * console app
 
@@ -88,6 +87,16 @@ dumps a big font to the ole console
 
 --------------------------------------------------------------------------------
 
+## fp2sh
+
+php script to make a bunch of short bash scripts in current dir 
+of all flatpak commands on your system
+Or you could just do this manually, too:
+   /usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
+	                     --file-forwarding app.shaz.util  $@
+
+--------------------------------------------------------------------------------
+
 ## flatten
 
 flatten all the files in the subdirs of a top dir into the top dir as
@@ -99,11 +108,11 @@ subdir1_subsubdir1_filename.txt
 
 Find Text
 
-look in top dir and all files (including those in subdirs) for a text string
+look for a text string in top dir and all files of subdirs
 
 #### todo
 
-* spin off dir search in a thread with "busy" and cancel button
+* spin off search in a thread with "busy" and cancel button
 
 --------------------------------------------------------------------------------
 
@@ -150,10 +159,6 @@ list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
 
 rename all files under a top dir with text editing
 
-#### todo
-
-* find better way for opening text editor...
-
 --------------------------------------------------------------------------------
 
 ## undup
@@ -164,8 +169,5 @@ find and kill duplicate files in a top level dir (and subdirs, etc)
 * need to spin off the dup checking in a sep thread with a
  "wait" and cancel button dialog
   cuz i think that's killin it (often sigh)
-
-* and find the PROPER way to pop a text editor on linux
-  (is there a proper way??)
 
 --------------------------------------------------------------------------------
