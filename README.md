@@ -19,10 +19,12 @@ CMakeList.txt s have ../../stv/os.cpp, ../../stv/ui.cpp, etc
 php script to make a bunch of short bash scripts in current dir 
 of all flatpak commands on your system
 Or you could just do this manually, too:
-   /usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
-	                     --file-forwarding app.shaz.shazware  $@
-	                     
-(sorry for it being in php - i'm just not a fan of python)
+
+sh@penguin:~/.bin$ cat ftx
+/usr/bin/flatpak run --branch=master --arch=x86_64 --command=ftx 
+--file-forwarding app.shaz.shazware  $@
+
+(sorry for it being in php - i'm just not python guy)
 ```
 
 --------------------------------------------------------------------------------
