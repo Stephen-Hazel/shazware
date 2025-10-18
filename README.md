@@ -122,8 +122,10 @@ my replacement for ls - i know i know - leave me be
 ```
 --------------------------------------------------------------------------------
 
-## ned (Nifty text EDitor)
+## ned 
 ```
+Nifty text EDitor
+
 an old school 80 columns monospace (ONLY!) text editor.
    originally on the C=64 in 6510 asm.
    then to C on Amiga500
@@ -141,7 +143,7 @@ I've used it EVERY time i've sat down to REALLY write some code.
 
 Below is the keymap.  Below that, the commands described
 (in excruciating detail)
-![ned screenshot](./ned.gif "old windows ned screenshot")
+![ned](./ned.gif "ned")
 
 ###KeyMap
  CTL u    Up
