@@ -145,8 +145,9 @@ Below is the keymap.  Below that, the commands described
 (in excruciating detail)
 ```
 ![ned](./ned.gif "ned")
-```
+
 ###KeyMap
+```
  CTL u    Up
  CTL m    Dn
  CTL j    Rit
@@ -201,8 +202,9 @@ Below is the keymap.  Below that, the commands described
  CTL ALT ,    UnDelRow
  CTL SHF SPC  UpCase Rit
  CTL     SPC  LoCase Rit
-
+```
 ###cursor commands
+```
  - Rit cursor right, stop at column 80
 
  - Lft
@@ -234,8 +236,9 @@ Below is the keymap.  Below that, the commands described
 
  - WrdEnd
    move to first space after next word, else end of row, else col 0 of next row
-
+```
 ###insert/delete commands
+```
  - TglOver
    toggle overwrite mode, reflected in title bar
 
@@ -273,8 +276,9 @@ Below is the keymap.  Below that, the commands described
    if in col 1 and row will fit at end of prev row, move it up
    else if prev col of cursor is a space, do BkSpc til it's a non space
    else do BkSpc til it's a space
-
+```
 ###block commands
+```
 note: all block commands work with ROW or BOX blocks.
 if BlkBgnCol == BlkEndCol, you are specifying a ROW block: all cols are used.
 otherwise, you are specifying a BOX block, only the specified cols are used.
@@ -321,8 +325,9 @@ otherwise, you are specifying a BOX block, only the specified cols are used.
 
  - BlkPst
    clipboard paste (single line if it fits, else row block)
-
+```
 ###find/replace commands
+```
  - Find
    prompt for a find string, find it (starting from cursor location)
 
@@ -332,8 +337,9 @@ otherwise, you are specifying a BOX block, only the specified cols are used.
  - Rplc
    find&replace thru whole file.  when prompted, press y to replace,
    n to skip, q to quit.  restore cursor.
-
+```
 ###IO commands
+```
  - Wipe
    clear out all the text in memory.  (UnDelRow info gets cleared too)
 
@@ -348,8 +354,9 @@ otherwise, you are specifying a BOX block, only the specified cols are used.
 
  - Quit
    quit Ned (without saving)
-
+```
 ###other commands
+```
  - UnDelRow
    undelete last deleted row, note that there may be some trailing junk
    characters due to the loss of row length info
