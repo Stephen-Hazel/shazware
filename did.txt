@@ -1,0 +1,83 @@
+<pre>
+- 2016Jul
+   finally got everything workin on a modern win10 install
+   and made public again
+
+- 2007Aug
+   finally gave Ned a ctrl-a to select all text
+
+- 2007Mar
+   less annoying version of update - no griping if no inet connection avail
+   LogInfo
+      removing http:// and www. and trailing /s from urls
+      also any string passed on command line (shazware.com for me:)
+   (sorry)
+
+- 2007Jan
+   update.exe checks for new stuff once a month (only)
+   ned, lp now uses font:  consolas 10 and 8, respectively
+   added lp assoc's in SETUP fiiiinally
+   added .wmv to recog'd filetypes of webget
+
+- 2006Dec
+   ned - handles scroll wheel better - faster scrolling scrolls more lines
+
+- 2006Jan
+   ned finally listens to the scroll wheel :)
+
+- 2005Dec
+   webget was still broke (forgot to upld latest change) - sorry bout that :(
+
+- 2005Sep
+   webget tweaks - hotlinked content not marked extern if checkbox set
+   toggle works a little better - can put content links back to "tocheck"
+   fixed downloading - don't use : in filename
+   ned paste bug fix (if past last row)
+   new Flatten app
+
+- 2005Mar
+   bug in ned during move columns :( - exception :(((
+   and in multirow paste (over existing line)
+
+- 2005Jan
+   FINALLY ADDED CLIPBOARD PASTE TO NED !!!!!!!!
+
+- 2004Aug
+   minor update to webget to look for archive= and code= for java .jar n .class
+   tossed webscrape - just textedit the .webget file and put it in yourself
+
+- 2004Jul
+   minor update to webget - now can pop up IE, and toggle/del 20 refs at a time
+   nicer output to DbgView :/
+   fixed a strcpy bug that'd blow the app
+
+- 2004Jun
+   busy at work and checking out processing.org - change of focus to graphics
+   temporarily
+
+- 2004May
+   WebGet
+    added .tar as known archive type
+    had BUG that only downloaded PART of the file sometimes - FEEXED :)
+    now get 1st url from clipboard
+    better filtering setup, too
+   ned
+    does PutBlk correctly (FINALLLY after years of dealin with this i fix it)
+    scolling bug is fixed (brute force method, but oh well)
+   FavLst
+    makes another format of html output now (FavLst_Pop.html)
+    that'll pop up all favorites in a directory of favorites at once
+    (good for link checkin, etc)
+
+- 2004Apr
+   tweaked RenEm to rename when only case is different too
+   (still need to add lp assocs - or make a GOOD gui assoc app)
+
+- 2004Feb
+   finally got setup.exe done and some "barely good enough" docs
+   new lp utility for quick small printin (still gotta add assocs)
+   shrunk the exe size from max 60K to max 23K :)  [tossed clib]
+
+- 2004Jan
+   registered shazware.com, setup paypal, startin setup.exe biz
+</pre>
