@@ -146,7 +146,7 @@ Below is the keymap.  Below that, the commands described
 ```
 ![ned](./ned.gif "ned")
 
-   ##KeyMap
+   ## KeyMap
 ```
     CTL u    Up
     CTL m    Dn
@@ -203,7 +203,7 @@ Below is the keymap.  Below that, the commands described
     CTL SHF SPC  UpCase Rit
     CTL     SPC  LoCase Rit
 ```
-   ##cursor commands
+   ## cursor commands
 ```
     - Rit cursor right, stop at column 80
 
@@ -237,7 +237,7 @@ Below is the keymap.  Below that, the commands described
     - WrdEnd
       move to first space after next word, else end of row, else col 0 of next row
 ```
-   ##insert/delete commands
+   ## insert/delete commands
 ```
     - TglOver
       toggle overwrite mode, reflected in title bar
@@ -277,7 +277,7 @@ Below is the keymap.  Below that, the commands described
       else if prev col of cursor is a space, do BkSpc til it's a non space
       else do BkSpc til it's a space
 ```
-   ##block commands
+   ## block commands
 ```
     note: all block commands work with ROW or BOX blocks.
     if BlkBgnCol == BlkEndCol, you are specifying a ROW block: all cols are used.
@@ -326,7 +326,7 @@ Below is the keymap.  Below that, the commands described
     - BlkPst
       clipboard paste (single line if it fits, else row block)
 ```
-   ##find/replace commands
+   ## find/replace commands
 ```
     - Find
       prompt for a find string, find it (starting from cursor location)
@@ -338,7 +338,7 @@ Below is the keymap.  Below that, the commands described
       find&replace thru whole file.  when prompted, press y to replace,
       n to skip, q to quit.  restore cursor.
 ```
-   ##IO commands
+   ## I/O commands
 ```
     - Wipe
       clear out all the text in memory.  (UnDelRow info gets cleared too)
@@ -355,7 +355,7 @@ Below is the keymap.  Below that, the commands described
     - Quit
       quit Ned (without saving)
 ```
-   ##other commands
+   ## other commands
 ```
     - UnDelRow
       undelete last deleted row, note that there may be some trailing junk
