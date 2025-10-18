@@ -1,6 +1,8 @@
 
 # shazware -- [S]teve [HAZ]el's soft[WARE]
 
+some file utilities i wrote for me.
+
 environment:  Qt c++ in a flatpak
 
 Uses my stv library of c++ assumed to be in ../stv
