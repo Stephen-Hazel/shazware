@@ -5,11 +5,11 @@ some file utilities i wrote for me.
 
 environment:  Qt c++ in a flatpak
 
+![meee](./shazware.png "meee")
+```
 Uses my stv library of c++ assumed to be in ../stv
 CMakeList.txt s have ../../stv/os.cpp, ../../stv/ui.cpp, etc
-
-![meee](./shazware.png "meee")
-
+```
 --------------------------------------------------------------------------------
 
 # fp2sh
