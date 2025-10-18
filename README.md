@@ -143,8 +143,9 @@ I've used it EVERY time i've sat down to REALLY write some code.
 
 Below is the keymap.  Below that, the commands described
 (in excruciating detail)
+```
 ![ned](./ned.gif "ned")
-
+```
 ###KeyMap
  CTL u    Up
  CTL m    Dn
