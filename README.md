@@ -20,7 +20,7 @@ php script to make a bunch of short bash scripts in current dir
 of all flatpak commands on your system
 Or you could just do this manually, too:
    /usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
-	                     --file-forwarding app.shaz.util  $@
+	                     --file-forwarding app.shaz.shazware  $@
 	                     
 (sorry for it being in php - i'm just not a fan of python)
 ```
@@ -31,9 +31,10 @@ Or you could just do this manually, too:
 
 * console app
 
-dumps a big "font" to the ole console.  relive the mainframe days.
-
 ```
+dumps a big "font" to the ole console.
+relive the mainframe days.
+
     sh@penguin:~/src$ big how are you
     HH        HH   OOOOOOOOOO   WW        WW
     HH        HH  OOOOOOOOOOOO  WW        WW
