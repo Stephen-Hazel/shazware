@@ -8,13 +8,11 @@ CMakeList.txt s have ../../stv/os.cpp, ../../stv/ui.cpp, etc
 
 ![meee](./shazware.png "meee")
 
-
 --------------------------------------------------------------------------------
 
 ## fp2sh
 
 * console app
-
 ```
 php script to make a bunch of short bash scripts in current dir 
 of all flatpak commands on your system
@@ -26,13 +24,11 @@ sh@penguin:~/.bin$ cat ftx
 
 (sorry for it being in php - i'm just not python guy)
 ```
-
 --------------------------------------------------------------------------------
 
 ## big
 
 * console app
-
 ```
 dumps a big "font" to the ole console.
 relive the mainframe days.
@@ -94,7 +90,6 @@ relive the mainframe days.
      MM        MM  AA        AA  NN       NNN
     MM        MM  AA        AA  NN        NN
 ```
-
 --------------------------------------------------------------------------------
 
 ## flatten
@@ -110,9 +105,8 @@ So you've still got your dir'd files.
 --------------------------------------------------------------------------------
 
 ## ftx
-
-Find Text
 ```
+find text
 look for a text string in all files under a top dir.
 Case is ignored as it should be.
 No dang stars or greppy stuff.
@@ -123,9 +117,9 @@ No dang stars or greppy stuff.
 ## l
 
 * console app
-
+```
 my replacement for ls - i know i know - leave me be
-
+```
 --------------------------------------------------------------------------------
 
 ## ned (Nifty text EDitor)
@@ -375,15 +369,14 @@ otherwise, you are specifying a BOX block, only the specified cols are used.
    used internally for ending macros
    
 ```
-
 --------------------------------------------------------------------------------
 
 ## recent
 
 * console app
-
+```
 list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
-
+```
 --------------------------------------------------------------------------------
 
 ## renem
@@ -398,7 +391,6 @@ Then it renames the ones you overtyped.
 
 Search and replace while renaming files :)
 ```
-
 --------------------------------------------------------------------------------
 
 ## undup
@@ -434,5 +426,4 @@ save !
 
 then click yes to actually kill em.  (or no to skip it)
 ```
-
 --------------------------------------------------------------------------------
