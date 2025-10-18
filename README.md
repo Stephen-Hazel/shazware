@@ -3,28 +3,32 @@
 
 environment:  Qt c++ in a flatpak
 
-Uses my stv library of c++ assumed to be in ../stv/*
-CMakeList.txt s have ../../stv/os.cpp, ui.cpp, etc
+Uses my stv library of c++ assumed to be in ../stv
+CMakeList.txt s have ../../stv/os.cpp, ../../stv/ui.cpp, etc
 
 --------------------------------------------------------------------------------
 
-## todo
+## fp2sh
+
+* console app
+
 ```
-   l   - dir arg
-         strip n resort by .ext
-   ned - when to clear find ?
-         debug BlockPaste (BlkPst)
-   ftx - enclose any space in findstr for ned
-   doc n package it as app.shaz.util flatpak
+php script to make a bunch of short bash scripts in current dir 
+of all flatpak commands on your system
+Or you could just do this manually, too:
+   /usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
+	                     --file-forwarding app.shaz.util  $@
+	                     
+(sorry for it being in php - i'm just not a fan of python)
 ```
 
 --------------------------------------------------------------------------------
 
 ## big
 
-dumps a big "font" to the ole console
-
 * console app
+
+dumps a big "font" to the ole console
 
 ```
     sh@penguin:~/src$ big how are you
@@ -87,16 +91,6 @@ dumps a big "font" to the ole console
 
 --------------------------------------------------------------------------------
 
-## fp2sh
-
-php script to make a bunch of short bash scripts in current dir 
-of all flatpak commands on your system
-Or you could just do this manually, too:
-   /usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
-	                     --file-forwarding app.shaz.util  $@
-
---------------------------------------------------------------------------------
-
 ## flatten
 
 flatten all the files in the subdirs of a top dir into the top dir as
@@ -110,17 +104,13 @@ Find Text
 
 look for a text string in top dir and all files of subdirs
 
-#### todo
-
-* spin off search in a thread with "busy" and cancel button
-
 --------------------------------------------------------------------------------
 
 ## l
 
-my replacement for ls - i know i know - leave me be
-
 * console app
+
+my replacement for ls - i know i know - leave me be
 
 --------------------------------------------------------------------------------
 
@@ -134,24 +124,13 @@ then MacClassic,
 then on win95/10 in barely C++
 then on chromeos with Qt, then on kubutu, then RasPi64
 
-#### todo
-
-* find - find all at start with count (maybe cache of row,cols?)
-         if FindStr exists,
-            pos/count right after filename
-            hilite all on screen
-      list of FindStr's, not just 1.  sepd by ||| ?
-      during replace, if it won't fit within line, warn but don't stop
-
-* get ridda Qt6 runtime error messages on chromeos and see what can be fixed
-
 --------------------------------------------------------------------------------
 
 ## recent
 
-list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
-
 * console app
+
+list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
 
 --------------------------------------------------------------------------------
 
@@ -164,10 +143,5 @@ rename all files under a top dir with text editing
 ## undup
 
 find and kill duplicate files in a top level dir (and subdirs, etc)
-
-#### todo
-* need to spin off the dup checking in a sep thread with a
- "wait" and cancel button dialog
-  cuz i think that's killin it (often sigh)
 
 --------------------------------------------------------------------------------
