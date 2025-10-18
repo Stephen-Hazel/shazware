@@ -128,6 +128,49 @@ my replacement for ls - i know i know - leave me be
 ```
 --------------------------------------------------------------------------------
 
+# recent
+
+* console app
+```
+list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
+```
+--------------------------------------------------------------------------------
+
+# renem
+```
+rename em - rename all files under a top dir via text editing.
+
+it makes a file listing in a .txt file 
+   for you to just overtype with ned.  ok ok or your text editor.
+Then it renames the ones you overtyped.  
+   Keep them on the same line.
+   Can't remember if you can change the path or not..:/
+
+Search and replace while renaming files :)
+```
+--------------------------------------------------------------------------------
+
+# undup
+```
+find and kill duplicate files in a top level dir (and subdirs, etc)
+
+works similar to renem, but groups matching files with empty lines.
+
+It doesn't know which one of the 2+ files to keep, though.
+   If it guesses wrong,
+
+   - prefix an x (and space) to the one it picked.
+
+   - delete the x by the file to keep
+
+save !
+
+then click yes to actually kill em.  (or no to skip it)
+
+again...  BE CAREFUL :)
+```
+--------------------------------------------------------------------------------
+
 # ned 
 ```
 Nifty text EDitor
@@ -384,48 +427,5 @@ Below is the keymap.  Below that, the commands described
     - EndCmd
       used internally for ending macros
    
-```
---------------------------------------------------------------------------------
-
-# recent
-
-* console app
-```
-list file mod dates under a top dir (like ls -ltr but all subdirs, nicer format)
-```
---------------------------------------------------------------------------------
-
-# renem
-```
-rename em - rename all files under a top dir via text editing.
-
-it makes a file listing in a .txt file 
-   for you to just overtype with ned.  ok ok or your text editor.
-Then it renames the ones you overtyped.  
-   Keep them on the same line.
-   Can't remember if you can change the path or not..:/
-
-Search and replace while renaming files :)
-```
---------------------------------------------------------------------------------
-
-# undup
-```
-find and kill duplicate files in a top level dir (and subdirs, etc)
-
-works similar to renem, but groups matching files with empty lines.
-
-It doesn't know which one of the 2+ files to keep, though.
-   If it guesses wrong,
-
-   - prefix an x (and space) to the one it picked.
-
-   - delete the x by the file to keep
-
-save !
-
-then click yes to actually kill em.  (or no to skip it)
-
-again...  BE CAREFUL :)
 ```
 --------------------------------------------------------------------------------
