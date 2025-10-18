@@ -5,7 +5,7 @@ some file utilities i wrote for me.
 
 environment:  Qt c++ in a flatpak
 
-![meee](./shazware.png "meee")
+![meee](_doc/shazware.png "meee")
 ```
 Uses my stv library of c++ assumed to be in ../stv
 CMakeList.txt s should have 
@@ -125,6 +125,13 @@ No dang stars or greppy stuff.
 * console app
 ```
 my replacement for ls - i know i know - leave me be
+
+args:
+   .  show .dotfiles   but never . or .. - can we please forget msdos ??
+   d  deep dir list
+   x  just dir/filename
+   s  sort by size
+   t  sort by datetime
 ```
 --------------------------------------------------------------------------------
 
@@ -193,7 +200,7 @@ I've used it EVERY time i've sat down to REALLY write some code.
 Below is the keymap.  Below that, the commands described
 (in excruciating detail)
 ```
-![ned](./ned.gif "ned")
+![ned](_doc/ned.gif "ned")
 
    ### KeyMap
 ```

@@ -1,5 +1,5 @@
 {
-   "app-id":  "app.shaz.util",
+   "app-id":  "app.shaz.shazware",
    "command": "ftx",
    "sdk":     "org.kde.Sdk",
    "runtime": "org.kde.Platform",
