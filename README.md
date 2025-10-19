@@ -20,15 +20,19 @@ CMakeList.txt s should have
 
 * console app
 ```
+script to make all your flatpaks available from the command line.
+
 php script to make a bunch of short bash scripts in current dir 
 of all flatpak commands on your system
-Or you could just do this manually, too:
+Or you could just do this manually, too.
 
-sh@penguin:~/.bin$ cat ftx
-/usr/bin/flatpak run --branch=master --arch=x86_64 --command=ftx 
+Making short scripts like...
+
+sh@penguin:~/.bin$ cat big
+/usr/bin/flatpak run --branch=master --arch=x86_64 --command=big 
 --file-forwarding app.shaz.shazware  $@
 
-(sorry for it being in php - i'm just not python guy)
+(sorry for it being in php - i'm just not a python guy)
 ```
 --------------------------------------------------------------------------------
 
