@@ -1,10 +1,13 @@
 code____________________________________________________________________________
 see what's diff btw pc b.sh and my b
 
+renem
+   sort :/
+
 ned
-   need a way to clear find hilites (other than find empty string)
-   fix paste cuz it often fails (copy seems fine, paste ain't)
-   during replace, if it won't fit within line, warn but don't stop
+   how to clear find hilites (other than find empty string)
+   paste often fails (copy is ok but not paste)
+   during replace, if it won't fit within line, just warn but don't stop
 
 l
    dir arg
@@ -36,4 +39,8 @@ backup
 
 doc_____________________________________________________________________________
 
-turn the crap i got now into fully formed docs on shaz.app
+shaz.app/app should list
+   pianocheetah, shazware, stv, pianocheetah.app, shaz.app
+
+turn the readme.md junk i got now into a link to shaz.app/shazware
+   with fully formed docs

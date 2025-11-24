@@ -17,7 +17,7 @@
   
   <description>
     <p>
-      Some file utilities I wrote to make things a little better.&quot;
+      Some file utilities I wrote to make things a little better.
     </p>
     <p>
       big -
@@ -27,7 +27,7 @@
     </p>
   </description>
   
-  <launchable type="desktop-id">app.shaz.ftx.desktop</launchable>
+  <launchable type="desktop-id">app.shaz.shazware.ftx.desktop</launchable>
    
   <screenshots>
     <screenshot type="default">
