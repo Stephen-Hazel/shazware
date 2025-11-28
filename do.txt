@@ -1,5 +1,7 @@
 code____________________________________________________________________________
-see what's diff btw pc b.sh and my b
+big
+   fix .desktop to run it properly (and l, etc)
+   is it possible to do for both gnome and kde ?
 
 renem
    sort :/
@@ -28,6 +30,8 @@ undup
 
 spec____________________________________________________________________________
 
+see what's diff btw pc b.sh and my b
+
 test on raspi n get em workin
    can flatpak do that arch?  limited to gtk or somethin?
    prob gotta move to makin' source avail to flathub...  grumble
@@ -39,8 +43,4 @@ backup
 
 doc_____________________________________________________________________________
 
-shaz.app/app should list
-   pianocheetah, shazware, stv, pianocheetah.app, shaz.app
-
-turn the readme.md junk i got now into a link to shaz.app/shazware
-   with fully formed docs
+(done for now)
