@@ -2,36 +2,36 @@
 <?php
 ## fp2sh - goes thru all your flatpaks and their commands
 ##         to make bash scripts to run em by their short name
-##         IN THE CURRENT DIR on toppa whatever else may be here
+## IN THE CURRENT DIR on toppa whatever else may be here
 ##
 $gr = "grep -i --no-filename 'exec=' " .
       "/var/lib/flatpak/exports/share/applications/*.desktop";
 $cmd = [];   $exe = [];
 foreach (explode ("\n", `$gr`) as $s) {
    $p = strpos ($s, '--command=');
-   if ($p == false)   continue;        # prob last empty line
+   if ($p == false)   continue;        # prob last empty line - skip
 
-   $c = substr ($s, $p+10);            # want stuff between --command= and space
-   $e = strpos ($c, ' ');
+   $c = substr ($s, $p+10);            # stuff between --command= and space
+   $e = strpos ($c, ' ');              # is short command=> script name
    if ($e === false) {echo "can't find end of command in $c\n";
                       continue;}       # no dice - skip it
 
-   $c = substr ($c, 0, $e);
+   $c = substr ($c, 0, $e);            # rip out /app/bin/ if it's there
    if (substr ($c, 0, 9) == '/app/bin/')  $c = substr ($c, 9);
    if (strpos ($c, '.') !== false) {
       $a = explode ('.', $c);
       $c = $a [COUNT ($a)-1];
    }
    $c = trim (strtolower ($c));
-   if (in_array ($c, $cmd)) {
+   if (in_array ($c, $cmd)) {          # give it a unique name w extra number
       for ($n = 1;  in_array ("$c$n", $cmd);  $n++)  ;
       $c .= $n;
    }
-   $cmd[] = $c;   $exe[] = $s;
-}
+   $cmd[] = $c;   $exe[] = $s;         # cmd has new script filename
+}                                      # exe has what to run
 foreach ($cmd as $i => $c) {
-   $sc = substr ($exe [$i], 5);        # kill Exec=
+   $sc = substr ($exe [$i], 5);        # kill Exec=  and any @@ %F @@
    if (substr ($sc, -8, 8) == '@@ %F @@')  $sc = substr ($sc, 0, -8);
-   file_put_contents ($c, $sc . " $@\n");
+   file_put_contents ($c, $sc . " $@\n");   # append args
    system ("chmod 777 $c");
 }

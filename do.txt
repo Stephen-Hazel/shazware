@@ -1,7 +1,6 @@
 code____________________________________________________________________________
 big
-   fix .desktop to run it properly (and l, etc)
-   is it possible to do for both gnome and kde ?
+   fix .desktop to run it l,recent,undup properly
 
 renem
    sort :/
@@ -15,12 +14,13 @@ l
    dir arg
    show where links go
    load n use .hidden
-   use l.cfg to sort .ext s properly and give files a tag
-      hilites with color?  icons?
+   use .l.cfg to sort .ext s properly and give files a tag
+      hilites with color?  icons in console (is that a font?)
 
 ftx
    kick ned with lineno upon dblclick on right pane line
    enclose any space in findstr for ned
+   maybe spin off a thread sigh
 
 undup
    spin it off in a sep thread with a "wait" and cancel dialog
@@ -34,7 +34,6 @@ see what's diff btw pc b.sh and my b
 
 test on raspi n get em workin
    can flatpak do that arch?  limited to gtk or somethin?
-   prob gotta move to makin' source avail to flathub...  grumble
 
 backup
    get a backup script done n cronned n outa my hair
@@ -42,5 +41,3 @@ backup
 
 
 doc_____________________________________________________________________________
-
-(done for now)
