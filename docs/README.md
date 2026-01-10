@@ -14,6 +14,7 @@ build this flatpak with
  - b.sh   (or b.sh d - for debugging)
 
 Uses my stv library of c++ (assumed to be in ../stv)
+
 CMakeList.txt s should have 
  - ../../stv/os.cpp
  - ../../stv/ui.cpp
