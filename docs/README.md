@@ -1,17 +1,21 @@
-
 # shazware -- [S]teve [HAZ]el's soft[WARE]
 
 some file utilities i wrote for me.
 
+![logo](https://shaz.app/img/logo.png "logo")
+
+https://shaz.app/shazware for user docs
+
 environment:  Qt c++ in a flatpak
 
-![meee](_doc/shazware.png "meee")
-```
-Uses my stv library of c++ assumed to be in ../stv
+build this flatpak with
+ - sudo apt install flatpak flatpak-builder qtcreator
+ - flatpak install org.kde.Sdk//6.10 org.kde.Platform//6.10
+ - b.sh   (or b.sh d - for debugging)
+
+Uses my stv library of c++ (assumed to be in ../stv)
 CMakeList.txt s should have 
-   ../../stv/os.cpp
-   ../../stv/ui.cpp
-   ../../stv/syn.cpp
-   etc
-```
-docs:  https://shaz.app/shazware
+ - ../../stv/os.cpp
+ - ../../stv/ui.cpp
+ - ../../stv/syn.cpp
+ - etc
