@@ -1,4 +1,5 @@
 code____________________________________________________________________________
+
 big
    fix .desktop to run it l,recent,undup properly
 
@@ -27,12 +28,11 @@ undup
    cuz i think that's killin it (often sigh)
 
 
-
 spec____________________________________________________________________________
 
-see what's diff btw pc b.sh and my b
+fix b.sh n test
 
-test on raspi n get em workin
+test on raspi n get it workin
    can flatpak do that arch?  limited to gtk or somethin?
 
 backup
