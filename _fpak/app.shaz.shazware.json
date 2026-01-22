@@ -6,22 +6,186 @@
    "runtime-version": "6.10",
    "finish-args": [
       "--filesystem=host",
+      "--device=dri"
       "--socket=wayland",
       "--socket=fallback-x11",
-      "--device=dri"
    ],
+   "build-options" : {
+      "strip": true,
+      "no-debuginfo": true
+   },
    "modules": [
       {
-         "name": "bin_to_app",
+         "name": "_fpak",
          "buildsystem": "simple",
          "build-commands": [
-            "cp -pr share /app",
-            "cp -pr bin   /app"
+            "cp -pr _fpak/share /app"
          ],
          "sources": [
             {
-               "type": "dir",
-               "path": "_build/files"
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "big",
+         "subdir": "big",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "flatten",
+         "subdir": "flatten",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "ftx",
+         "subdir": "ftx",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "l",
+         "subdir": "l",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "ned",
+         "subdir": "ned",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "recent",
+         "subdir": "recent",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "renem",
+         "subdir": "renem",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
+            }
+         ]
+      },
+      {
+         "name":   "undup",
+         "subdir": "undup",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/shazware.git",
+               "commit": ""
+            },
+            {
+               "type": "git",
+               "url:   "https//github.com/Stephen-Hazel/stv.git",
+               "commit": ""
             }
          ]
       }
