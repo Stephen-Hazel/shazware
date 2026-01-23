@@ -9,6 +9,7 @@
    $f = "flatpak";   $fb = "$f-builder";
 
    system ("rm -fr _build .$fb");      // cleanup
+   system ("mkdir  _build");
 
 echo "...uninstall old one\n";
    system ("$f uninstall -y $app");
@@ -22,17 +23,13 @@ echo "...uninstall old one\n";
       run
       where
       bt full
-*/    system ("mkdir _build");
-      system ("$fb --user --force-clean --install _build fpak.dbg", $rc);
+*/    system ("$fb --user --force-clean --install _build fpak.dbg", $rc);
       system ("$f install --reinstall --user --assumeyes ".
               "/home/sh/src/pianocheetah/.$fb/cache $app");
       system ("$f install --reinstall --user --assumeyes ".
               "/home/sh/src/pianocheetah/.$fb/cache $app".".Debug");
       exit;
    }
-
-// source => _build => install
-   system ("mkdir _build");
 
 echo "...compilin n installin\n";
    system ("$fb --user --install _build fpak", $rc);

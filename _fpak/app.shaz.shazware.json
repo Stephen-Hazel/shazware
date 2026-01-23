@@ -6,9 +6,9 @@
    "runtime-version": "6.10",
    "finish-args": [
       "--filesystem=host",
-      "--device=dri"
+      "--device=dri",
       "--socket=wayland",
-      "--socket=fallback-x11",
+      "--socket=fallback-x11"
    ],
    "build-options" : {
       "strip": true,
@@ -23,9 +23,9 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             }
          ]
       },
@@ -38,14 +38,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "big/stv"
             }
          ]
       },
@@ -58,14 +59,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "flatten/stv"
             }
          ]
       },
@@ -78,14 +80,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "ftx/stv"
             }
          ]
       },
@@ -98,14 +101,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "l/stv"
             }
          ]
       },
@@ -118,14 +122,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "ned/stv"
             }
          ]
       },
@@ -138,14 +143,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "recent/stv"
             }
          ]
       },
@@ -158,14 +164,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "renem/stv"
             }
          ]
       },
@@ -178,14 +185,15 @@
          ],
          "sources": [
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/shazware.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/shazware.git",
+               "commit": "eab0465163c4e4eba9e3e62559d3bee66b042fe0"
             },
             {
-               "type": "git",
-               "url:   "https//github.com/Stephen-Hazel/stv.git",
-               "commit": ""
+               "type":   "git",
+               "url":    "https://github.com/Stephen-Hazel/stv.git",
+               "commit": "00ba1ca58d19402183935cd2ddd6d188a1cdba82",
+               "dest":   "undup/stv"
             }
          ]
       }

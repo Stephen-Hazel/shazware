@@ -30,8 +30,6 @@ undup
 
 spec____________________________________________________________________________
 
-fix b.sh n test
-
 test on raspi n get it workin
    can flatpak do that arch?  limited to gtk or somethin?
 
