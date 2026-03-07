@@ -111,7 +111,6 @@ DBG ("   `d to `d", j+1, i2+1);
          DBG ("error readin your .txt:(", p);
 
    f.Kill (fn);                        // cleanup
-   qApp->quit ();
 }
 
 
@@ -127,18 +126,21 @@ void UnDup::Init ()
 { TStr d;
    StrCp (d, Gui.Arg (0));
    if (! *d)  if (getcwd (d, sizeof (TStr)) == nullptr)  *d = '\0';
-   connect (ui->btnDir, SIGNAL (clicked ()), this, SLOT (Dir ()));
-   connect (ui->btnGo,  SIGNAL (clicked ()), this, SLOT (Go  ()));
+   connect (ui->btnDir, & QPushButton::clicked, this, & UnDup::Dir);
+   connect (ui->btnGo,  & QPushButton::clicked, this, & UnDup::Go);
+DBG("init d=`s", d);
    if (*d)  ui->ledDir->setText (d);
 }
 
-void UnDup::Quit ()
-{  Gui.WinSave ();  }
+void UnDup::Quit ()  {Gui.WinSave ();}
 
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   UnDup w;
+DBGTH("UnDup");
+DBG("main");
    App.Init ();   Gui.Init (& a, & w, "UnDup", 'f');   w.Init ();
+DBG("gonna Gui.Loop");
   int rc = Gui.Loop ();                                w.Quit ();
    return rc;
 }

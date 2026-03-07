@@ -3,7 +3,7 @@
 #ifndef FTX_H
 #define FTX_H
 
-#include "../../stv/ui.h"
+#include "stv/ui.h"
 #include "ui_ftx.h"
 
 
@@ -33,4 +33,5 @@ public slots:
    void Clik ();
    void DClk (int row, int col);
 };
+
 #endif // FTX_H

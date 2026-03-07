@@ -1,14 +1,14 @@
 code____________________________________________________________________________
 
-big
-   fix .desktop to run it l,recent,undup properly
+why isn't undup showin gui ??
 
 renem
    sort :/
 
 ned
    how to clear find hilites (other than find empty string)
-   paste often fails (copy is ok but not paste)
+      also deleting lines should refind or they're all offset etc
+   paste often fails (copy is ok but not paste - kde thing?)
    during replace, if it won't fit within line, just warn but don't stop
 
 l
@@ -30,7 +30,7 @@ undup
 
 spec____________________________________________________________________________
 
-test on raspi n get it workin
+test on raspi
    can flatpak do that arch?  limited to gtk or somethin?
 
 backup

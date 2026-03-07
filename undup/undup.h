@@ -8,7 +8,6 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class UnDup; }
 QT_END_NAMESPACE
 
-
 class UnDup: public QMainWindow {
    Q_OBJECT
 private:
@@ -16,10 +15,9 @@ private:
 
 public:
    UnDup (QWidget *par = nullptr)
-   : QMainWindow (par), ui (new Ui::UnDup)
-   {  ui->setupUi (this);  }
+   : QMainWindow (par), ui (new Ui::UnDup)  {ui->setupUi (this);}
 
-  ~UnDup ()  {delete ui;}
+  ~UnDup ()     {delete ui;}
 
    void Init (), Quit ();
 
