@@ -94,7 +94,7 @@ int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   RenEm w;
   int r;
-   App.Init ();   Gui.Init (& a, & w, "RenEm", 'f');   w.Init ();
-  int rc = Gui.Loop ();                                w.Quit ();
+   App.Init ();   Gui.Init (& a, & w, "RenEm", '\0', 'f');   w.Init ();
+  int rc = Gui.Loop ();                                      w.Quit ();
    return rc;
 }

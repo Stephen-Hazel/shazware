@@ -6,7 +6,7 @@
 
 // app triplet n fpak cmds
    $app = "app.shaz.shazware";
-   $f = "flatpak";   $fb = "$f-builder";
+   $f = "flatpak";   $fb = "flatpak run org.flatpak.Builder";
 
    system ("rm -fr _build .$fb");      // cleanup
    system ("mkdir  _build");
@@ -23,7 +23,7 @@ echo "...uninstall old one\n";
       run
       where
       bt full
-*/    system ("$fb --user --force-clean --install _build fpak.dbg", $rc);
+*/    system ("$fb --user --disable-rofiles-fuse --force-clean --install _build fpak.dbg", $rc);
       system ("$f install --reinstall --user --assumeyes ".
               "/home/sh/src/pianocheetah/.$fb/cache $app");
       system ("$f install --reinstall --user --assumeyes ".
@@ -32,7 +32,7 @@ echo "...uninstall old one\n";
    }
 
 echo "...compilin n installin\n";
-   system ("$fb --user --install _build fpak", $rc);
+   system ("$fb --user --disable-rofiles-fuse --install _build fpak", $rc);
    if ($rc != 0)  exit;                // build error :(
 
 echo "...cleanup\n";

@@ -139,8 +139,8 @@ int main (int argc, char *argv [])
   UnDup w;
 DBGTH("UnDup");
 DBG("main");
-   App.Init ();   Gui.Init (& a, & w, "UnDup", 'f');   w.Init ();
+   App.Init ();   Gui.Init (& a, & w, "UnDup", '\0', 'f');   w.Init ();
 DBG("gonna Gui.Loop");
-  int rc = Gui.Loop ();                                w.Quit ();
+  int rc = Gui.Loop ();                                      w.Quit ();
    return rc;
 }

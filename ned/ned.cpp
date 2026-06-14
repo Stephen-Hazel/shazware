@@ -346,7 +346,7 @@ int main (int argc, char *argv [])
 { QApplication a (argc, argv);
   NEd w;
 DBGTH("NEd");
-   App.Init ();   Gui.Init (& a, & w, "NEd", 'f');   w.Init ();
-  int rc = Gui.Loop ();                              w.Quit ();
+   App.Init ();   Gui.Init (& a, & w, "NEd", '\0', 'f');   w.Init ();
+  int rc = Gui.Loop ();                                    w.Quit ();
    return rc;
 }

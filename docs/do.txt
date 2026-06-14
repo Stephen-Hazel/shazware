@@ -1,11 +1,18 @@
 code____________________________________________________________________________
 
-why isn't undup showin gui ??
+undup
+   not showin gui ??
+      UnDup main
+      UnDup init d=/home/sh
+      UnDup gonna Gui.Loop
+   spin it off in a sep thread with a "wait" and cancel dialog
+      cuz i think that's killin it
 
 renem
    sort :/
 
 ned
+   preserve find str across sessions
    how to clear find hilites (other than find empty string)
       also deleting lines should refind or they're all offset etc
    paste often fails (copy is ok but not paste - kde thing?)
@@ -22,10 +29,6 @@ ftx
    kick ned with lineno upon dblclick on right pane line
    enclose any space in findstr for ned
    maybe spin off a thread sigh
-
-undup
-   spin it off in a sep thread with a "wait" and cancel dialog
-   cuz i think that's killin it (often sigh)
 
 
 spec____________________________________________________________________________
