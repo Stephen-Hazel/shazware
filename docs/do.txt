@@ -26,7 +26,7 @@ l
       hilites with color?  icons in console (is that a font?)
 
 ftx
-   kick ned with lineno upon dblclick on right pane line
+   kick ned with lineno upon dblclick on RIGHT pane line
    enclose any space in findstr for ned
    maybe spin off a thread sigh
 
