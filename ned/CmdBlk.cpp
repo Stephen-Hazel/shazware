@@ -265,7 +265,7 @@ bool BlkCpy ()
             len += Row [Ro]->Len;
          }
       }
-      if (r)  {StrCp (& buf [len], CC("\n"));  len++;}
+      if (r)  {StrCp (& buf [len], "\n");  len++;}
       else              buf [len] = '\0';
    }
    Gui.ClipPut (buf);

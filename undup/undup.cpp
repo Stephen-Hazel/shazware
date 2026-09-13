@@ -35,8 +35,8 @@ char *DoRec (char *buf, ubyt2 len, ubyt4 pos, void *ptr)
 { TStr fn;
   File f;
    (void)len;   (void)pos;   (void)ptr;
-   if (*buf == '\0')              return NULL;
-   if (MemCm (buf, CC("x "), 2))  return NULL;
+   if (*buf == '\0')          return NULL;
+   if (MemCm (buf, "x ", 2))  return NULL;
    StrFmt (fn, "`s/`s", Top, & buf [2]);   f.Kill (fn);   return NULL;
 }
 
@@ -97,7 +97,7 @@ DBG ("   `d to `d", j+1, i2+1);
                f.Put (StrFmt (ps, " `s\n", F [m].nm));
                for (k = 0;  k < ngot;  k++)  if (k != m)
                   f.Put (StrFmt (ps, "x `s\n", F [k].nm));
-               f.Put (CC("\n"));
+               f.Put ("\n");
 //DBG("   ");
             }
          }

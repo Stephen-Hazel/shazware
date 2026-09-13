@@ -18,7 +18,7 @@ void Flatten::Go ()
   File  f;
   bool  dor;
   TStr  d, fn2;
-  StrArr tb (CC("FNLst"), 65536, 20000*sizeof(TStr));
+  StrArr tb ("FNLst", 65536, 20000*sizeof(TStr));
    StrCp (d, UnQS (ui->ledDir->text ()));
 DBG("Find dir=`s", d);
    _tb = & tb;   f.DoDir (d, this, DoDir);
@@ -46,7 +46,7 @@ void Flatten::Dir ()
 //------------------------------------------------------------------------------
 void Flatten::Init ()
 { TStr  d;
-   Gui.WinLoad ();   
+   Gui.WinLoad ();
    StrCp (d, Gui.Arg (0));
    if (*d == '\0')  if (getcwd (d, sizeof (TStr)) == nullptr)  *d = '\0';
    if (*d)  ui->ledDir->setText (d);

@@ -45,7 +45,7 @@ DBG ("`d files", NFNm);
 
    b = StrLn (Top) + 1;
    for (i = 0; i < NFNm; i++)
-      {StrCp (buf, & FNm [i][b]);   StrAp (buf, CC("\n"));   f.Put (buf);}
+      {StrCp (buf, & FNm [i][b]);   StrAp (buf, "\n");   f.Put (buf);}
    f.Shut ();
    App.Open (fn);
 

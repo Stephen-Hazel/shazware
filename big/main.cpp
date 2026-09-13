@@ -829,7 +829,7 @@ void Wd (char *wd)
 
 int main (int argc, char *argv [])
 { int i = 1;
-   if ((argc > 2) && (! StrCm (argv [1], CC("-i"))))  {Ital = true;  i++;}
+   if ((argc > 2) && (! StrCm (argv [1], "-i")))  {Ital = true;  i++;}
    for (;  i < argc;  i++)  Wd (argv [i]);
    return 0;
 }

@@ -10,7 +10,7 @@ void FTx::DClk (int row, int col)
    StrCp (fn, UnQS (ui->tblList->item (row, 0)->text ()));
    StrCp (fs, UnQS (ui->ledFind->text ()));
    StrFmt (pf, "`s/`s", _dir, fn);
-   App.Spinoff (StrFmt (pa, "ned `p `s", pf, fs));
+   App.Spinoff (StrFmt (pa, "ned `p `p", pf, fs));
 }
 
 
@@ -20,14 +20,14 @@ void FTx::Clik ()
   TStr  s, s2;
   char *sp, *psp, *tr, *nt;
   bool  go;
-  StrArr tx (CC("txt"), 200000, 100000*sizeof (TStr));
-  QColor bl, pi (CC("#FF0080"));
+  StrArr tx ("txt", 200000, 100000*sizeof (TStr));
+  QColor bl, pi ("#FF0080");
    row = ui->tblList->currentRow ();
 //DBG("Clik bgn r=`d", row);
    if (row == SC(ulong,-1))  return;
 
    StrCp (s2, UnQS (ui->tblList->item (row, 0)->text ()));
-   StrCp (s, _dir);   StrAp (s, CC("/"));   StrAp (s, s2);
+   StrCp (s, _dir);   StrAp (s, "/");   StrAp (s, s2);
    sln  = StrLn (_s);
 
 //DBG("fn=`s str=`s", s, _s);
@@ -38,19 +38,18 @@ void FTx::Clik ()
    bl = te.Fg ();
    te.Clr ();   te.SetFg (bl);
    if (nt) {
-      te.Add (
-         CC("...doesn't seem to be a regular text file\n\n"));
+      te.Add ("...doesn't seem to be a regular text file\n\n");
       return;
    }
    for (r = 0;  r < tx.num;  r++)  if (StrSt (tx.str [r], _s)) {
 //DBG("r=`d ngot=`d", r, got);
       if (got >= 100)
-         {te.Add (CC("\n\nENOUGH !!\n"));   break;}
+         {te.Add ("\n\nENOUGH !!\n");   break;}
 
    // div-er if already got any
       if (got) {
          te.SetFg (pi);
-         te.Add (CC("________\n\n"));
+         te.Add ("________\n\n");
          te.SetFg (bl);
       }
 
@@ -76,7 +75,7 @@ void FTx::Clik ()
       for (go = true;  go;) {
          got++;
          if (got >= 100)
-            {te.Add (CC("\n\nENOUGH !!\n"));   break;}
+            {te.Add ("\n\nENOUGH !!\n");   break;}
 
       // see if another happens within 4+4 rows, if so do mid n it");
          go = false;
@@ -136,7 +135,7 @@ static int TblCmp (void *p1, void *p2)
 void FTx::Find ()
 // list off files in this dir w matching str;  show em;  search 1st
 { File f;
-  StrArr tb (CC("FNLst"), 20000, 13000*sizeof(TStr));
+  StrArr tb ("FNLst", 20000, 13000*sizeof(TStr));
    StrCp (_dir, UnQS (ui->ledDir->text ()));
    StrCp (_s,   UnQS (ui->ledFind->text ()));
 //DBG("Find dir=`s s=`s", _dir, _s);
@@ -176,8 +175,8 @@ void FTx::Dir ()
 //------------------------------------------------------------------------------
 void FTx::Init ()
 {  StrCp (_s, Gui.Arg (0));   StrCp (_dir, Gui.Arg (1));
-   if (! *_dir)  App.CfgGet (CC("ftx_dir"), _dir);
-   if (! *_dir)  StrCp (_dir, CC("/home/sh/src/pcheetah/"));
+   if (! *_dir)  App.CfgGet ("ftx_dir", _dir);
+   if (! *_dir)  StrCp (_dir, "/home/sh/src/pcheetah/");
    ui->spl->setSizes (QList<int>() << 100 << 300);
    Gui.WinLoad (ui->spl);
   CtlTabl t;
@@ -194,7 +193,7 @@ void FTx::Init ()
 }
 
 void FTx::Quit ()
-{  App.CfgPut (CC("ftx_dir"), _dir);   Gui.WinSave (ui->spl);  }
+{  App.CfgPut ("ftx_dir", _dir);   Gui.WinSave (ui->spl);  }
 
 int main (int argc, char *argv [])
 { QApplication a (argc, argv);

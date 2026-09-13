@@ -81,7 +81,7 @@ DBG("init top=`s", Top);
          else if (*a == 's')  Srt = 's';    // s  sort by size
          else if (*a == 't')  Srt = 't';    // t  sort by datetime
       }
-      else  {StrAp (Top, CC("/"));   StrAp (Top, a);}
+      else  {StrAp (Top, "/");   StrAp (Top, a);}
    }
 DBG(".=`b d=`b x=`b srt=`c top=`s", dot, dir, x, Srt, Top);
 
@@ -91,7 +91,7 @@ DBG(".=`b d=`b x=`b srt=`c top=`s", dot, dir, x, Srt, Top);
    if (dir)  f.DoDir (Top, nullptr, DoDir);      // deep
    else {                                        // flat
             nd = (ubyt4) p.DLst (Top, & FN [0],  65535);
-      for (i = 0;  i < nd;  i++)  StrAp (FN [i], CC("/"));
+      for (i = 0;  i < nd;  i++)  StrAp (FN [i], "/");
       NFN = nd + (ubyt4) p.FLst (Top, & FN [nd], 65535);
    }
    if (NFN == BITS (FN))  rats = true;
@@ -99,7 +99,7 @@ DBG(".=`b d=`b x=`b srt=`c top=`s", dot, dir, x, Srt, Top);
 DBG("pre . nfn=`d nd=`d rats=`b", NFN, nd, rats);
    if (! dot)  for (i = 0;  i < NFN;) {
       StrCp (s, FN [i]);   Fn2Name (s);
-      if (StrSt (FN [i], CC("/.")) || (s [0] == '.'))
+      if (StrSt (FN [i], "/.") || (s [0] == '.'))
             MemCp (& FN [i], & FN [i+1], sizeof (FN [0]) * (--NFN - i));
       else  i++;
    }
@@ -112,7 +112,7 @@ DBG("nfn=`d nd=`d", NFN, nd);
          {DBG ("fn too long `s", FN [i]);   return 99;}
       StrFmt (s, "`s/`s", Top, FN [i]);
 
-      if (i < nd)  StrCp (szs, CC("        --"));
+      if (i < nd)  StrCp (szs, "        --");
       else {sz = f.Size (s);   StrFmt (szs, "`>10d", sz);}      // len 10
 
       f.TmStr (tm, s);                 // len 19  n overwrite today,yest
