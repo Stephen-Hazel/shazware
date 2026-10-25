@@ -11,8 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg)
 
 set(PROJECT_SOURCES
    ned.h
@@ -34,7 +34,8 @@ set(PROJECT_SOURCES
      ${PROJECT_SOURCES}
  )
 
-target_link_libraries(ned PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(ned PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+                      Qt${QT_VERSION_MAJOR}::Svg)
 
 set_target_properties(ned PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

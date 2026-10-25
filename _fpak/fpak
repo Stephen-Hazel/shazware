@@ -1,0 +1,38 @@
+{
+ "app-id":  "app.shaz.util",
+ "command": "ftx",
+ "sdk":     "org.kde.Sdk",
+ "runtime": "org.kde.Platform",
+ "runtime-version":          "6.11",
+ "finish-args": [
+  "--filesystem=host",
+  "--device=dri",
+  "--socket=wayland",
+  "--socket=fallback-x11"
+ ],
+ "build-options" : {
+  "cflags": "-O2 -g",
+  "cxxflags": "-O2 -g",
+  "env": {
+   "V": "1"
+  },
+  "arch": {
+   "x86_64": {
+    "cflags": "-O3 -g"
+   }
+  }
+ },
+ "modules": [
+  {
+   "name": "shazware",
+   "buildsystem": "simple",
+   "build-commands": [
+      "_fpak/fp-build.sh"
+   ],
+   "sources": [
+    {"type": "dir", "path": ".."},
+    {"type": "dir", "path": "../../stv", "dest": "stv"}
+   ]
+  }
+ ]
+}
