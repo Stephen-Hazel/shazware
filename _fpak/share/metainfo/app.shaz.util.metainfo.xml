@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
    
-  <id>app.shaz.shazware</id>
+  <id>app.shaz.util</id>
    
   <name>SHazWare</name>
    
@@ -27,7 +27,7 @@
     </p>
   </description>
   
-  <launchable type="desktop-id">app.shaz.shazware.ftx.desktop</launchable>
+  <launchable type="desktop-id">app.shaz.util.ftx.desktop</launchable>
    
   <screenshots>
     <screenshot type="default">

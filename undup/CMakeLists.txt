@@ -12,8 +12,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOUIC_SEARCH_PATHS rc)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Svg REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Svg REQUIRED)
 
 set(PROJECT_SOURCES
    undup.cpp
@@ -28,7 +28,8 @@ qt_add_executable(undup rc/rc.qrc
    ${PROJECT_SOURCES}
 )
 
-target_link_libraries(undup PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(undup PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+                      Qt${QT_VERSION_MAJOR}::Svg)
 
 set_target_properties(undup PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
